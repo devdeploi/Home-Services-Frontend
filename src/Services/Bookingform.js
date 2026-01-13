@@ -144,14 +144,15 @@ export default function Bookingform() {
 
       <div className="container-fluid px-4">
         <div className="w-100 mb-3">
-          <Link to="/services" className="text-decoration-none d-flex align-items-center justify-content-center shadow-sm" style={{
+          <Link to="/services" className="text-decoration-none d-flex align-items-center gap-2 shadow-sm" style={{
             backgroundColor: '#020403',
-            width: '40px',
-            height: '40px',
+            color: '#fac371',
+            padding: '8px 16px',
             borderRadius: '12px',
-            color: '#fac371'
+            width: 'fit-content'
           }}>
             <FontAwesomeIcon icon={faArrowLeft} style={{ fontSize: '1.2rem' }} />
+            <span className="fw-bold">Back</span>
           </Link>
         </div>
         <div className="d-flex justify-content-center px-3">

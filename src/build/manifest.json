@@ -1,0 +1,38 @@
+{
+  "short_name": "Home Service",
+  "name": "Home Service App",
+  "icons": [
+    {
+      "src": "web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot-desktop.png",
+      "sizes": "1600x1100",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "screenshot-mobile.png",
+      "sizes": "1312x2742",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "id": "/index.html",
+  "display": "standalone",
+  "description": "Professional home services at your doorstep.",
+  "orientation": "any",
+  "theme_color": "#fac371",
+  "background_color": "#020403"
+}

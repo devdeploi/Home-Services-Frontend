@@ -135,14 +135,15 @@ export default function Adminservicemenu() {
       <div className="sticky-top bg-white py-3">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <h5 className="mb-0 text-primary fw-bold">
-            <Link to="/dashboard" className="text-decoration-none d-flex align-items-center justify-content-center shadow-sm" style={{
+            <Link to="/dashboard" className="text-decoration-none d-flex align-items-center gap-2 shadow-sm" style={{
               backgroundColor: '#020403',
-              width: '40px',
-              height: '40px',
+              color: '#fac371',
+              padding: '8px 16px',
               borderRadius: '12px',
-              color: '#fac371'
+              width: 'fit-content'
             }}>
               <FontAwesomeIcon icon={faArrowLeft} style={{ fontSize: '1.2rem' }} />
+              <span className="fw-bold">Back</span>
             </Link>
           </h5>
 

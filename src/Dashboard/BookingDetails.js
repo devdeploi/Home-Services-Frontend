@@ -153,14 +153,15 @@ export default function BookingDetails() {
       <div style={{ position: 'sticky', top: 0, zIndex: 1000, backgroundColor: 'white' }}>
         {/* Header */}
         <div className="header" style={{ padding: '12px 16px', display: 'flex', alignItems: 'center', borderBottom: '1px solid #eaeaea', gap: '16px' }}>
-          <Link to="/dashboard" className="text-decoration-none d-flex align-items-center justify-content-center shadow-sm" style={{
+          <Link to="/dashboard" className="text-decoration-none d-flex align-items-center gap-2 shadow-sm" style={{
             backgroundColor: '#020403',
-            width: '40px',
-            height: '40px',
+            color: '#fac371',
+            padding: '8px 16px',
             borderRadius: '12px',
-            color: '#fac371'
+            width: 'fit-content'
           }}>
             <FontAwesomeIcon icon={faArrowLeft} style={{ fontSize: '1.2rem' }} />
+            <span className="fw-bold">Back</span>
           </Link>
           <h4 style={{ margin: 0, color: '#fac371', fontWeight: 'bold', flex: 1, textAlign: 'center' }}>Booked History</h4>
         </div>

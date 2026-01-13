@@ -69,14 +69,15 @@ export default function BookedHistory() {
       <div className="container mt-4">
         <div className="d-flex justify-content-between align-items-center mb-4">
           <div className="w-100 d-flex align-items-center gap-3">
-            <Link to="/MyProfile" className="text-decoration-none d-flex align-items-center justify-content-center shadow-sm" style={{
+            <Link to="/MyProfile" className="text-decoration-none d-flex align-items-center gap-2 shadow-sm" style={{
               backgroundColor: '#020403',
-              width: '40px',
-              height: '40px',
+              color: '#fac371',
+              padding: '8px 16px',
               borderRadius: '12px',
-              color: '#fac371'
+              width: 'fit-content'
             }}>
               <FontAwesomeIcon icon={faArrowLeft} style={{ fontSize: '1.2rem' }} />
+              <span className="fw-bold">Back</span>
             </Link>
             <h4 className="my-3" style={{ color: '#fac371' }}>Booked History</h4>
           </div>

@@ -23,17 +23,18 @@ const BookingDetailCard = ({ booking }) => {
       <div className="d-flex align-items-center mb-3">
         <span
           onClick={() => navigate(-0)}
-          className="d-flex align-items-center justify-content-center shadow-sm me-3"
+          className="d-flex align-items-center gap-2 shadow-sm me-3"
           style={{
             cursor: 'pointer',
             backgroundColor: '#020403',
-            width: '40px',
-            height: '40px',
+            color: '#fac371',
+            padding: '8px 16px',
             borderRadius: '12px',
-            color: '#fac371'
+            width: 'fit-content'
           }}
         >
           <FontAwesomeIcon icon={faArrowLeft} style={{ fontSize: '1.2rem' }} />
+          <span className="fw-bold">Back</span>
         </span>
         <div>
           <h5 className="mb-0">{booking?.user_name || 'User'}</h5>

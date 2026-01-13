@@ -46,19 +46,23 @@ export default function Menucard() {
         <div className="container py-4 text-center text-danger">Error: {error}</div>
       ) : (
         <div className="container py-4">
-          <div className="sticky-top bg-white py-3">
-            <h5 className="mb-0 text-primary fw-bold d-flex align-items-center gap-2">
-              <Link to="/" className="text-decoration-none d-flex align-items-center justify-content-center shadow-sm" style={{
+          <div className="sticky-top bg-white py-3 px-3">
+            <div className="d-flex align-items-center justify-content-center position-relative">
+              <Link to="/" className="text-decoration-none d-flex align-items-center gap-2 shadow-sm position-absolute start-0" style={{
                 backgroundColor: '#020403',
-                width: '40px',
-                height: '40px',
+                color: '#fac371',
+                padding: '8px 16px',
                 borderRadius: '12px',
-                color: '#fac371'
+                width: 'fit-content',
+                zIndex: 1
               }}>
                 <FontAwesomeIcon icon={faArrowLeft} style={{ fontSize: '1.2rem' }} />
+                <span className="fw-bold">Back</span>
               </Link>
-              <span style={{ color: '#fac371' }}>Popular services</span>
-            </h5>
+              <h4 className="mb-0 fw-bold" style={{ color: '#fac371' }}>
+                All services
+              </h4>
+            </div>
           </div>
           <div className="row g-3">
             {services.map((service) => (
