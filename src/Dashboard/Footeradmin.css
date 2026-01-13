@@ -1,6 +1,11 @@
 .footer {
-  background-color: #000080;
+  background-color: #020403;
+  color: #fac371;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer a {
+  color: #fac371 !important;
 }
 
 .footer-item svg {

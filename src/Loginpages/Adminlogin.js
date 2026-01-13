@@ -16,7 +16,7 @@ export default function Adminlogin() {
 
   const validate = () => {
     const newErrors = {};
-    
+
     if (!phone) {
       newErrors.phone = 'Phone number is required';
     } else if (phone.replace(/\D/g, '').length < 8) {
@@ -39,27 +39,28 @@ export default function Adminlogin() {
 
     setLoading(true);
     try {
+      const formattedPhone = phone.startsWith('+') ? phone : '+' + phone;
       const response = await fetch(`${API_URL}/users/login.php`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          mobile_no: phone,
+          mobile_no: formattedPhone,
           user_password: password
         })
       });
 
       const data = await response.json();
- 
-// ... inside handleSubmit function
-if (data.result === "true" && data.data.role === "2") {
-  // Correctly store user data under 'userData'
-  localStorage.setItem('userData', JSON.stringify(data.data));
-  localStorage.setItem('userRole', data.data.role);
-  navigate('/dashboard'); // Navigate directly to profile
-} else {
-  setErrors({ apiError: data.message || 'Invalid admin credentials' });
-}
-// ...
+
+      // ... inside handleSubmit function
+      if (data.result === "true" && data.data.role === "2") {
+        // Correctly store user data under 'userData'
+        localStorage.setItem('userData', JSON.stringify(data.data));
+        localStorage.setItem('userRole', data.data.role);
+        navigate('/dashboard'); // Navigate directly to profile
+      } else {
+        setErrors({ apiError: data.message || 'Invalid admin credentials' });
+      }
+      // ...
     } catch (error) {
       setErrors({ apiError: 'Network error. Please try again.' });
     } finally {
@@ -70,17 +71,23 @@ if (data.result === "true" && data.data.role === "2") {
   return (
     <div className="container">
       {/* Back Arrow */}
-      <div className='pt-3 ps-3' style={{ position: 'absolute' }}>
-        <Link to="/" className="text-decoration-none" style={{ color: '#000080' }}>
-          <FontAwesomeIcon icon={faArrowLeft} className="me-2" style={{ fontSize: '1.5rem' }} />
+      <div className='pt-3 ps-3'>
+        <Link to="/" className="text-decoration-none d-flex align-items-center justify-content-center shadow-sm" style={{
+          backgroundColor: '#020403',
+          width: '40px',
+          height: '40px',
+          borderRadius: '12px',
+          color: '#fac371'
+        }}>
+          <FontAwesomeIcon icon={faArrowLeft} style={{ fontSize: '1.2rem' }} />
         </Link>
       </div>
 
       {/* Logo Section */}
       <div className="d-flex justify-content-center mt-4">
-        <img 
-          src="/images/Generallogo.png" 
-          alt="Admin Logo" 
+        <img
+          src="/images/Generallogo.png"
+          alt="Admin Logo"
           style={{ height: '242px', width: '279px' }}
         />
       </div>
@@ -88,7 +95,7 @@ if (data.result === "true" && data.data.role === "2") {
       <form onSubmit={handleSubmit}>
         {/* Phone Input */}
         <div className="form-group mb-4">
-          <label style={{ fontWeight: '500', fontSize: '18px', color: '#000080' }}>
+          <label style={{ fontWeight: '500', fontSize: '18px', color: '#000000' }}>
             Admin Phone Number
           </label>
           <PhoneInput
@@ -96,12 +103,12 @@ if (data.result === "true" && data.data.role === "2") {
             onlyCountries={['in']}
             value={phone}
             onChange={(value) => {
-              const cleaned = value.replace(/[^\d+]/g, '');
-              setPhone(cleaned.startsWith('+') ? cleaned : '+' + cleaned);
+              setPhone(value);
             }}
             inputClass={`form-control shadow ${errors.phone ? 'is-invalid' : ''}`}
-            inputStyle={{ width: '100%', height: '56px', borderColor: '#000080' }}
+            inputStyle={{ width: '100%', height: '56px', borderColor: '#fac371' }}
             disableDropdown
+            countryCodeEditable={false}
           />
           {errors.phone && (
             <div className="alert alert-danger mt-2">{errors.phone}</div>
@@ -110,55 +117,55 @@ if (data.result === "true" && data.data.role === "2") {
 
         {/* Password Input */}
         <div className="form-group mb-4">
-  <label style={{ 
-    fontWeight: '500', 
-    fontSize: '18px', 
-    color: '#000080'
-  }}>
-    Password
-  </label>
-  <div style={{ position: 'relative' }}>
-    <input
-      type={showPassword ? "text" : "password"}
-      className={`form-control shadow ${errors.password ? 'is-invalid' : ''}`}
-      style={{ 
-        borderColor: '#000080', 
-        height: '56px',
-        paddingRight: '40px'
-      }}
-      value={password}
-      onChange={(e) => setPassword(e.target.value)}
-    />
-    <FontAwesomeIcon
-      icon={showPassword ? faEyeSlash : faEye}
-      onClick={() => setShowPassword(!showPassword)}
-      style={{
-        position: 'absolute',
-        right: '15px',
-        top: '50%',
-        transform: 'translateY(-50%)',
-        cursor: 'pointer',
-        color: '#000080',
-        fontSize: '1.2rem'
-      }}
-    />
-  </div>
-  {errors.password && (
-    <div className="alert alert-danger mt-2">{errors.password}</div>
-  )}
-</div>
+          <label style={{
+            fontWeight: '500',
+            fontSize: '18px',
+            color: '#000000'
+          }}>
+            Password
+          </label>
+          <div style={{ position: 'relative' }}>
+            <input
+              type={showPassword ? "text" : "password"}
+              className={`form-control shadow ${errors.password ? 'is-invalid' : ''}`}
+              style={{
+                borderColor: '#fac371',
+                height: '56px',
+                paddingRight: '40px'
+              }}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <FontAwesomeIcon
+              icon={showPassword ? faEyeSlash : faEye}
+              onClick={() => setShowPassword(!showPassword)}
+              style={{
+                position: 'absolute',
+                right: '15px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                cursor: 'pointer',
+                color: '#fac371',
+                fontSize: '1.2rem'
+              }}
+            />
+          </div>
+          {errors.password && (
+            <div className="alert alert-danger mt-2">{errors.password}</div>
+          )}
+        </div>
 
         {/* Login Button */}
-        <button 
+        <button
           type="submit"
-          className="btn w-100 text-white rounded mt-3"
-          style={{ backgroundColor: '#000080' }}
+          className="btn w-100 rounded mt-3"
+          style={{ backgroundColor: '#020403', color: '#fac371' }}
           disabled={loading}
         >
           {loading ? 'Authenticating...' : 'Admin Login'}
         </button>
       </form>
-      <div style={{height:'100px'}}></div>
+      <div style={{ height: '100px' }}></div>
     </div>
   );
 }

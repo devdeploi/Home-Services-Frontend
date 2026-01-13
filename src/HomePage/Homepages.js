@@ -35,7 +35,7 @@ export default function Homepages() {
     // Screen size handler
     const handleResize = () => setIsLargeScreen(window.innerWidth >= 768);
     window.addEventListener('resize', handleResize);
-    
+
     fetchServices();
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -43,10 +43,12 @@ export default function Homepages() {
   }, []);
 
   if (loading) {
-    return <div className="flex justify-center items-center gap-2">
-  <div className="w-5 h-5 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-  Loading services...
-</div>;
+    return <div className="d-flex justify-content-center align-items-center vh-100 gap-2">
+      <div className="spinner-border" style={{ color: '#020403' }} role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+      <span className="fw-bold" style={{ color: '#020403' }}>Loading services...</span>
+    </div>;
   }
 
   if (error) {
@@ -55,8 +57,8 @@ export default function Homepages() {
 
   return (
     <>
-      <Header/>
-      <div className="container pb-5 pb-md-6 pb-lg-7">
+      <Header />
+      <div className="container pb-5 pb-md-6 pb-lg-7 mt-4">
         {/* Header Image */}
         <div className="mb-3">
           <img
@@ -72,14 +74,14 @@ export default function Homepages() {
 
         {/* Popular Services */}
         <div className="d-flex justify-content-between align-items-center mb-2">
-          <h5 style={{ color: '#000080' }}>Popular Services</h5>
-          <Link to="/services" className="text-decoration-none" style={{ color: '#000080' }}>View all</Link>
+          <h5 style={{ color: '#fac371' }}>Popular Services</h5>
+          <Link to="/services" className="text-decoration-none" style={{ color: '#fac371' }}>View all</Link>
         </div>
 
         <div className="row text-center mb-4">
           {services.slice(0, 6).map((service) => (
             <div className="col-4 mb-3" key={service.serv_id}>
-              <Link 
+              <Link
                 to="#"
                 className="text-decoration-none"
                 onClick={(e) => {
@@ -92,19 +94,19 @@ export default function Homepages() {
                 }}
               >
                 <div className="shadow rounded p-2">
-          {/* Add back the image and service name elements */}
-          <div className="img-container" style={{ height: '100px' }}>
-            <img 
-              src={service.image_url} 
-              alt={service.serv_name} 
-              className="img-fluid h-100"
-              style={{ objectFit: 'contain' }}
-            />
-          </div>
-          <div style={{ color: '#000080' }} className="mt-2">
-            {service.serv_name}
-          </div>
-        </div>
+                  {/* Add back the image and service name elements */}
+                  <div className="img-container" style={{ height: '100px' }}>
+                    <img
+                      src={service.image_url}
+                      alt={service.serv_name}
+                      className="img-fluid h-100"
+                      style={{ objectFit: 'contain' }}
+                    />
+                  </div>
+                  <div style={{ color: '#020403' }} className="mt-2">
+                    {service.serv_name}
+                  </div>
+                </div>
               </Link>
             </div>
           ))}

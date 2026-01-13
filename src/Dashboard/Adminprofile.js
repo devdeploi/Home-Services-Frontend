@@ -13,23 +13,23 @@ export default function Adminprofile() {
   useEffect(() => {
     const fetchAdminData = async () => {
       try {
-      
-        
+
+
         // Try to get stored data
         const storedData = localStorage.getItem('userData');
         const parsedData = storedData ? JSON.parse(storedData) : null;
-        
-       if (parsedData?.user_id) {
-  const response = await fetch(`${API_URL}/users/getUserById.php?user_id=${parsedData.user_id}`);
-  const data = await response.json();
-  if (data.status === 200) {
-    setUserData(data.data);
-    localStorage.setItem('userData', JSON.stringify({ ...parsedData, ...data.data }));
-  } else {
-    setUserData(parsedData); // fallback
-  }
 
-}
+        if (parsedData?.user_id) {
+          const response = await fetch(`${API_URL}/users/getUserById.php?user_id=${parsedData.user_id}`);
+          const data = await response.json();
+          if (data.status === 200) {
+            setUserData(data.data);
+            localStorage.setItem('userData', JSON.stringify({ ...parsedData, ...data.data }));
+          } else {
+            setUserData(parsedData); // fallback
+          }
+
+        }
       } catch (error) {
         console.error('Error loading admin data:', error);
         // Don't set error, just continue with default data
@@ -44,9 +44,9 @@ export default function Adminprofile() {
   const handleLogout = () => {
     // Clear all user data including role
     localStorage.clear();
-    sessionStorage.clear(); 
+    sessionStorage.clear();
     window.dispatchEvent(new Event('storage'));
-    
+
     // Redirect to login
     navigate('/', { replace: true });
   };
@@ -55,12 +55,12 @@ export default function Adminprofile() {
     return (
       <div className="container text-center mt-4" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div>
-          <img 
-            src="/images/loading.gif"
+          <img
+            src="/images/11677497.gif"
             alt="Loading"
             style={{ width: '80px', height: '80px', marginBottom: '20px' }}
           />
-          <p style={{ color: '#000080', fontSize: '18px' }}>Loading Profile...</p>
+          <p style={{ color: '#020403', fontSize: '18px' }}>Loading Profile...</p>
         </div>
       </div>
     );
@@ -72,9 +72,9 @@ export default function Adminprofile() {
         <div className="alert alert-warning" role="alert">
           {error}
         </div>
-        <button 
-          className="btn mt-3" 
-          style={{ backgroundColor: '#000080', color: 'white' }}
+        <button
+          className="btn mt-3"
+          style={{ backgroundColor: '#020403', color: '#fac371' }}
           onClick={() => navigate('/login')}
         >
           Go to Login
@@ -104,9 +104,9 @@ export default function Adminprofile() {
             borderRadius: '12px',
             width: '320px'
           }}>
-            <img src="/images/Logoout.png" alt="Logoout" style={{height:'87px', width:'79px'}} className='m-auto'/>
-            <h5 style={{ 
-              color: '#000080', 
+            <img src="/images/Logoout.png" alt="Logoout" style={{ height: '87px', width: '79px' }} className='m-auto' />
+            <h5 style={{
+              color: '#fac371',
               marginBottom: '15px',
               fontSize: '20px',
               fontWeight: '600',
@@ -118,8 +118,8 @@ export default function Adminprofile() {
               <button
                 onClick={handleLogout}
                 style={{
-                  backgroundColor: '#000080',
-                  color: 'white',
+                  backgroundColor: '#020403',
+                  color: '#fac371',
                   border: 'none',
                   padding: '10px',
                   borderRadius: '8px',
@@ -136,15 +136,15 @@ export default function Adminprofile() {
               <button
                 onClick={() => setShowLogoutModal(false)}
                 style={{
-                  border: '2px solid #000080',
+                  border: '2px solid #fac371',
                   backgroundColor: 'transparent',
-                  color: '#000080',
+                  color: '#fac371',
                   cursor: 'pointer',
                   flex: 1,
                   padding: '10px',
                   borderRadius: '8px',
                   fontWeight: '500',
-                  width:'270px'
+                  width: '270px'
                 }}
               >
                 Cancel
@@ -154,7 +154,7 @@ export default function Adminprofile() {
         </div>
       )}
 
-      <h5 className="fw-bold text-strat" style={{color:'#000080'}}>Admin Profile</h5>
+      <h5 className="fw-bold text-strat" style={{ color: '#fac371' }}>Admin Profile</h5>
       <img
         src={userData?.profile_image || "/images/Ellipse.png"}
         alt="Profile"
@@ -165,11 +165,11 @@ export default function Adminprofile() {
       <div className="list-group mt-4">
         {/* Edit Profile */}
         <Link to="/Admin-Edit-profile" className="text-decoration-none mb-3 shadow rounded px-3 py-2 d-flex justify-content-between align-items-center">
-          <div className="d-flex align-items-center" style={{ color: '#000080' }}>
+          <div className="d-flex align-items-center" style={{ color: '#fac371' }}>
             <img src="/images/Edit.png" alt="" className="me-2" /> Edit Profile
           </div>
-          <div className="d-flex justify-content-center align-items-center" style={{ height: '35px', width: '35px', backgroundColor: '#000080', borderRadius: '6px' }}>
-            <i className="bi bi-chevron-right text-white"></i>
+          <div className="d-flex justify-content-center align-items-center" style={{ height: '35px', width: '35px', backgroundColor: '#020403', borderRadius: '6px' }}>
+            <i className="bi bi-chevron-right" style={{ color: '#fac371' }}></i>
           </div>
         </Link>
 
@@ -177,12 +177,12 @@ export default function Adminprofile() {
         <div
           onClick={() => setShowLogoutModal(true)}
           className="text-decoration-none mt-3 shadow rounded px-3 py-2 d-flex align-items-center"
-          style={{ color: '#000080', cursor: 'pointer' }}
+          style={{ color: '#fac371', cursor: 'pointer' }}
         >
           <img src="/images/Logout.png" alt="" className="me-2" /> Logout
         </div>
       </div>
-        <div style={{height:'100px'}}></div>
+      <div style={{ height: '100px' }}></div>
     </div>
   );
 }

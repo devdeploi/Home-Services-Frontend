@@ -20,7 +20,7 @@ export default function BookingDetails() {
       try {
         const response = await fetch(`${API_URL}/booking/getBooking.php`);
         const data = await response.json();
-        
+
         if (data.status === 200) {
           // Sort bookings by date (latest first)
           const sortedBookings = [...data.data].sort((a, b) => {
@@ -41,17 +41,17 @@ export default function BookingDetails() {
 
   // Get status text and corresponding styling
   const getStatusInfo = (status) => {
-  if (status === undefined || status === null) {
-    return { text: 'Unknown', color: '#000080' };
-  }
-  const statusMap = {
-    '1': { text: 'Pending', color: '#000080' },
-    '2': { text: 'On Progress', color: '#000080' },
-    '3': { text: 'Completed', color: '#000080' },
-    '4': { text: 'Cancelled', color: '#000080' }
+    if (status === undefined || status === null) {
+      return { text: 'Unknown', color: '#fac371' };
+    }
+    const statusMap = {
+      '1': { text: 'Pending', color: '#020403' },
+      '2': { text: 'On Progress', color: '#020403' },
+      '3': { text: 'Completed', color: '#020403' },
+      '4': { text: 'Cancelled', color: '#020403' }
+    };
+    return statusMap[status.toString()] || { text: 'Unknown', color: '#020403' };
   };
-  return statusMap[status.toString()] || { text: 'Unknown', color: '#000080' };
-};
 
   // Filter bookings based on search term
   const filteredBookings = bookings.filter(booking => {
@@ -103,9 +103,9 @@ export default function BookingDetails() {
       });
       const data = await response.json();
       if (data.status === 200) {
-        const updatedBookings = bookings.map(booking => 
-          booking.booking_id === selectedBooking.booking_id ? 
-          { ...booking, ...formData } : booking
+        const updatedBookings = bookings.map(booking =>
+          booking.booking_id === selectedBooking.booking_id ?
+            { ...booking, ...formData } : booking
         );
         // Re-sort after update to maintain order
         const sortedBookings = [...updatedBookings].sort((a, b) => {
@@ -134,7 +134,13 @@ export default function BookingDetails() {
   };
 
   if (loading) {
-    return <div className="text-center mt-5"><Spinner animation="border" /></div>;
+    return (
+      <div className="d-flex justify-content-center align-items-center" style={{ minHeight: '60vh' }}>
+        <Spinner animation="border" role="status" style={{ color: '#020403' }}>
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </div>
+    );
   }
 
   if (error) {
@@ -145,38 +151,44 @@ export default function BookingDetails() {
     <div className="container-fulied" >
       {/* Header */}
       <div style={{ position: 'sticky', top: 0, zIndex: 1000, backgroundColor: 'white' }}>
-  {/* Header */}
-  <div className="header" style={{ padding: '12px 16px', display: 'flex', alignItems: 'center', borderBottom: '1px solid #eaeaea' }}>
-    <Link to="/dashboard" style={{ color: '#000080', marginRight: '16px', textDecoration: 'none' }}>
-      <FontAwesomeIcon icon={faArrowLeft} />
-    </Link>
-    <h4 style={{ margin: 0, color: '#000080', fontWeight: 'bold', flex: 1, textAlign: 'center' }}>Booked History</h4>
-  </div>
+        {/* Header */}
+        <div className="header" style={{ padding: '12px 16px', display: 'flex', alignItems: 'center', borderBottom: '1px solid #eaeaea', gap: '16px' }}>
+          <Link to="/dashboard" className="text-decoration-none d-flex align-items-center justify-content-center shadow-sm" style={{
+            backgroundColor: '#020403',
+            width: '40px',
+            height: '40px',
+            borderRadius: '12px',
+            color: '#fac371'
+          }}>
+            <FontAwesomeIcon icon={faArrowLeft} style={{ fontSize: '1.2rem' }} />
+          </Link>
+          <h4 style={{ margin: 0, color: '#fac371', fontWeight: 'bold', flex: 1, textAlign: 'center' }}>Booked History</h4>
+        </div>
 
-  {/* Search Bar */}
-  <div style={{ padding: '12px 16px', borderBottom: '1px solid #eaeaea' }}>
-    <input
-      type="text"
-      placeholder="Search bookings..."
-      value={searchTerm}
-      onChange={(e) => setSearchTerm(e.target.value)}
-      style={{ width: '100%', padding: '8px 12px', borderRadius: '20px', border: '1px solid black' }}
-    />
-  </div>
-</div>
+        {/* Search Bar */}
+        <div style={{ padding: '12px 16px', borderBottom: '1px solid #eaeaea' }}>
+          <input
+            type="text"
+            placeholder="Search bookings..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            style={{ width: '100%', padding: '8px 12px', borderRadius: '20px', border: '1px solid black' }}
+          />
+        </div>
+      </div>
 
 
       {/* Booking List */}
-     <div
-  className="booking-list"
-  style={{
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-    gap: '16px',
-    padding: '0 16px',
-    marginTop: '10px'
-  }}
->
+      <div
+        className="booking-list"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '16px',
+          padding: '0 16px',
+          marginTop: '10px'
+        }}
+      >
 
         {filteredBookings.map(booking => (
           <div key={booking.booking_id} className="booking-card" style={{ backgroundColor: 'white', borderRadius: '4px', marginBottom: '12px', padding: '16px', boxShadow: '0 3px 5px rgba(0,0,0,0.1)' }}>
@@ -185,33 +197,33 @@ export default function BookingDetails() {
               <div className="booked-label" style={{ color: '#666' }}>Booked</div>
               <div className="booking-date" style={{ color: '#666' }}>{booking.booked_date}</div>
             </div>
-            
+
             {/* Service Info */}
             <div style={{ marginBottom: '12px' }}>
-               <div style={{ display: 'flex' }}>
-                <div style={{ fontWeight: 'bold', color: '#000080', marginRight: '8px' }}>Name:</div>
+              <div style={{ display: 'flex' }}>
+                <div style={{ fontWeight: 'bold', color: '#fac371', marginRight: '8px' }}>Name:</div>
                 <div>{booking.user_name}</div>
               </div>
               <div style={{ display: 'flex', marginBottom: '8px' }}>
-                <div style={{ fontWeight: 'bold', color: '#000080', marginRight: '8px' }}>Service:</div>
+                <div style={{ fontWeight: 'bold', color: '#fac371', marginRight: '8px' }}>Service:</div>
                 <div>{booking.serv_name}</div>
               </div>
               <div style={{ display: 'flex', marginBottom: '8px' }}>
-                <div style={{ fontWeight: 'bold', color: '#000080', marginRight: '8px' }}>Mobile No:</div>
+                <div style={{ fontWeight: 'bold', color: '#fac371', marginRight: '8px' }}>Mobile No:</div>
                 <div>{booking.mobile_no}</div>
               </div>
-             
+
             </div>
-            
+
             {/* Status Button */}
             <div style={{ marginBottom: '12px' }}>
-              <button 
-                style={{ 
-                  width: '100%', 
-                  padding: '10px', 
-                  backgroundColor: getStatusInfo(booking.status).color, 
-                  color: 'white', 
-                  border: 'none', 
+              <button
+                style={{
+                  width: '100%',
+                  padding: '10px',
+                  backgroundColor: getStatusInfo(booking.status).color,
+                  color: '#fac371',
+                  border: 'none',
                   borderRadius: '15px',
                   fontWeight: 'bold',
                   cursor: 'pointer'
@@ -221,15 +233,15 @@ export default function BookingDetails() {
                 {getStatusInfo(booking.status).text}
               </button>
             </div>
-            
+
             {/* Action Buttons */}
             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-              <button 
-                onClick={() => openEditModal(booking)} 
-                style={{ 
-                  backgroundColor: 'transparent', 
-                  border: '1px solid #000080', 
-                  color: '#000080', 
+              <button
+                onClick={() => openEditModal(booking)}
+                style={{
+                  backgroundColor: 'transparent',
+                  border: '1px solid #fac371',
+                  color: '#fac371',
                   borderRadius: '4px',
                   padding: '6px 12px',
                   marginRight: '5px',
@@ -238,12 +250,12 @@ export default function BookingDetails() {
               >
                 <FontAwesomeIcon icon={faEdit} />
               </button>
-              <button 
-                onClick={() => handleDelete(booking.booking_id)} 
-                style={{ 
-                  backgroundColor: 'transparent', 
-                  border: '1px solid #dc3545', 
-                  color: '#dc3545', 
+              <button
+                onClick={() => handleDelete(booking.booking_id)}
+                style={{
+                  backgroundColor: 'transparent',
+                  border: '1px solid #dc3545',
+                  color: '#dc3545',
                   borderRadius: '4px',
                   padding: '6px 12px',
                   cursor: 'pointer'
@@ -283,7 +295,7 @@ export default function BookingDetails() {
               <Form.Label>Status</Form.Label>
               <Form.Select
                 value={formData.status || ''}
-                onChange={(e) => setFormData({...formData, status: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, status: e.target.value })}
               >
                 <option value="1">Pending</option>
                 <option value="2">On Progress</option>
@@ -296,13 +308,13 @@ export default function BookingDetails() {
             <Button variant="secondary" onClick={() => setShowEditModal(false)}>
               Close
             </Button>
-            <Button variant="primary" type="submit" style={{ backgroundColor: '#000080', borderColor: '#000080' }}>
+            <Button variant="primary" type="submit" style={{ backgroundColor: '#fac371', borderColor: '#fac371' }}>
               Save Changes
             </Button>
           </Modal.Footer>
         </Form>
       </Modal>
-      <div style={{height:'100px'}}></div>
+      <div style={{ height: '100px' }}></div>
     </div>
   );
 }

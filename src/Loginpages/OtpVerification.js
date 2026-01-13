@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -6,15 +6,19 @@ import { API_URL } from '../utils/Function';
 
 const OtpVerification = ({ show, onClose, mobileNumber, onSuccess, initialOtp = '' }) => {
   // If initialOtp is provided, split it into array of digits
-  const initialOtpArray = initialOtp ? 
-    initialOtp.toString().padStart(4, '0').split('').slice(0, 4) : 
+  const initialOtpArray = initialOtp ?
+    initialOtp.toString().padStart(4, '0').split('').slice(0, 4) :
     ['', '', '', ''];
-  
+
   const [otp, setOtp] = useState(initialOtpArray);
   const [timer, setTimer] = useState(60);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const inputRefs = [useRef(), useRef(), useRef(), useRef()];
+  const ref0 = useRef();
+  const ref1 = useRef();
+  const ref2 = useRef();
+  const ref3 = useRef();
+  const inputRefs = useMemo(() => [ref0, ref1, ref2, ref3], []);
 
   // Start timer when component mounts
   useEffect(() => {
@@ -34,7 +38,7 @@ const OtpVerification = ({ show, onClose, mobileNumber, onSuccess, initialOtp = 
     if (show && inputRefs[0].current) {
       inputRefs[0].current.focus();
     }
-  }, [show]);
+  }, [show, inputRefs]);
 
   const handleInputChange = (index, value) => {
     // Only allow numbers
@@ -66,16 +70,16 @@ const OtpVerification = ({ show, onClose, mobileNumber, onSuccess, initialOtp = 
     e.preventDefault();
     const pastedData = e.clipboardData.getData('text');
     const pastedOtp = pastedData.slice(0, 4).split('');
-    
+
     if (!/^\d+$/.test(pastedData)) return;
-    
+
     const newOtp = [...otp];
     pastedOtp.forEach((digit, index) => {
       if (index < 4) newOtp[index] = digit;
     });
-    
+
     setOtp(newOtp);
-    
+
     // Focus the last populated input or the next empty one
     const lastIndex = Math.min(pastedOtp.length - 1, 3);
     if (lastIndex >= 0) {
@@ -86,13 +90,14 @@ const OtpVerification = ({ show, onClose, mobileNumber, onSuccess, initialOtp = 
   const resendOtp = async () => {
     setLoading(true);
     setError('');
-    
+
     try {
+      const formattedPhone = mobileNumber.startsWith('+') ? mobileNumber : '+' + mobileNumber;
       // Call your resend OTP API here
       const response = await axios.post(
         `${API_URL}/users/resendOtp.php`,
         {
-          mobile_no: mobileNumber
+          mobile_no: formattedPhone
         },
         {
           headers: {
@@ -100,9 +105,9 @@ const OtpVerification = ({ show, onClose, mobileNumber, onSuccess, initialOtp = 
           }
         }
       );
-      
+
       setLoading(false);
-      
+
       if (response.data.status === 200) {
         setTimer(60); // Reset the timer
         // You might want to display a success message here
@@ -127,10 +132,11 @@ const OtpVerification = ({ show, onClose, mobileNumber, onSuccess, initialOtp = 
     setError('');
 
     try {
+      const formattedPhone = mobileNumber.startsWith('+') ? mobileNumber : '+' + mobileNumber;
       const response = await axios.post(
         `${API_URL}/users/verifyOtp.php`, // Correct API endpoint
         {
-          mobile_no: mobileNumber,
+          mobile_no: formattedPhone,
           otp_code: otp.join('')
         },
         {
@@ -181,24 +187,13 @@ const OtpVerification = ({ show, onClose, mobileNumber, onSuccess, initialOtp = 
         maxWidth: '400px',
         position: 'relative'
       }}>
-        <button
-          onClick={onClose}
-          style={{
-            position: 'absolute',
-            top: '10px',
-            right: '10px',
-            background: 'none',
-            border: 'none',
-            fontSize: '1.5rem',
-            cursor: 'pointer',
-            color: '#000080'
-          }}
-        >
-          <FontAwesomeIcon icon={faTimes} />
-        </button>
-        
-        <h3 style={{ color: '#000080', textAlign: 'center', marginBottom: '1.5rem' }}>OTP Verification</h3>
-        
+        <div className="position-absolute top-0 start-0 p-3">
+          <span onClick={onClose} style={{ cursor: 'pointer', color: '#fac371' }}>
+            <FontAwesomeIcon icon={faTimes} size="lg" />
+          </span>
+        </div>
+        <h3 style={{ color: '#fac371', textAlign: 'center', marginBottom: '1.5rem' }}>OTP Verification</h3>
+
         <p style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
           Enter the 4-digit code sent to{' '}
           <span style={{ fontWeight: 'bold' }}>{mobileNumber}</span>
@@ -221,7 +216,7 @@ const OtpVerification = ({ show, onClose, mobileNumber, onSuccess, initialOtp = 
                 fontSize: '24px',
                 textAlign: 'center',
                 borderRadius: '10px',
-                border: '1px solid #000080',
+                border: '1px solid #fac371',
                 outline: 'none'
               }}
               className="shadow"
@@ -239,7 +234,7 @@ const OtpVerification = ({ show, onClose, mobileNumber, onSuccess, initialOtp = 
           onClick={verifyOtp}
           disabled={loading || otp.includes('')}
           className="btn w-100 mb-3 text-white"
-          style={{ backgroundColor: '#000080', height: '50px' }}
+          style={{ backgroundColor: '#fac371', height: '50px' }}
         >
           {loading ? 'Verifying...' : 'Verify OTP'}
         </button>
@@ -255,7 +250,7 @@ const OtpVerification = ({ show, onClose, mobileNumber, onSuccess, initialOtp = 
                 style={{
                   background: 'none',
                   border: 'none',
-                  color: '#000080',
+                  color: '#fac371',
                   fontWeight: 'bold',
                   padding: 0,
                   cursor: 'pointer'
@@ -267,7 +262,7 @@ const OtpVerification = ({ show, onClose, mobileNumber, onSuccess, initialOtp = 
           )}
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

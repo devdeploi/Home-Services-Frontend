@@ -79,8 +79,12 @@ export default function Dashboardpage() {
   if (stats.loading) {
     return (
       <Container className="text-center py-5">
-        <Spinner animation="border" variant="primary" />
-        <h4 className="mt-3">Loading Dashboard Data...</h4>
+        <div className="text-center mt-5">
+          <Spinner animation="border" role="status" style={{ color: '#020403' }}>
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+          <p className="mt-2" style={{ color: '#020403' }}>Loading...</p>
+        </div>
       </Container>
     );
   }
@@ -91,7 +95,7 @@ export default function Dashboardpage() {
         <Alert variant="danger">
           <h2>Error Loading Dashboard</h2>
           <p>{stats.error}</p>
-          <button 
+          <button
             className="btn btn-primary"
             onClick={() => window.location.reload()}
           >
@@ -105,7 +109,7 @@ export default function Dashboardpage() {
   return (
     <Container fluid className="py-4 px-4">
       <h1 className="text-center mb-4">Admin Dashboard</h1>
-      
+
       <Row className="g-4 mb-4">
         {/* Overview Cards */}
         <Col lg={3} md={6}>
@@ -113,7 +117,7 @@ export default function Dashboardpage() {
             <Card.Body className="text-center">
               <div className="d-flex align-items-center justify-content-center mb-3">
                 <div className="rounded-circle bg-primary bg-opacity-10 p-3">
-                  <FontAwesomeIcon icon={faShop}/>
+                  <FontAwesomeIcon icon={faShop} />
                 </div>
               </div>
               <Card.Title>Total Orders</Card.Title>
@@ -129,7 +133,7 @@ export default function Dashboardpage() {
             <Card.Body className="text-center">
               <div className="d-flex align-items-center justify-content-center mb-3">
                 <div className="rounded-circle bg-success bg-opacity-10 p-3">
-                  <FontAwesomeIcon icon={faUsers}/>
+                  <FontAwesomeIcon icon={faUsers} />
                 </div>
               </div>
               <Card.Title>Total Users</Card.Title>
@@ -186,7 +190,7 @@ export default function Dashboardpage() {
           </Card>
         </Col>
       </Row>
-      
+
       <Row className="g-4 mb-4">
         <Col md={12}>
           <Card className="shadow border-0 rounded-3">
@@ -235,7 +239,7 @@ export default function Dashboardpage() {
         </Col>
       </Row>
 
-      <div style={{height:'80px'}}></div>
+      <div style={{ height: '80px' }}></div>
     </Container>
   );
 }
