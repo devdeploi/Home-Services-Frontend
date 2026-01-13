@@ -84,14 +84,14 @@ export default function Loginform() {
   };
 
   return (
-    <div className="d-flex flex-column bg-white" style={{ minHeight: '100vh' }}>
+    <div className="d-flex flex-column" style={{ minHeight: '100vh', backgroundColor: '#fffcfc' }}>
       <Header />
       <div className="container">
         {/* Back Arrow */}
         <div className='pt-3 ps-3'>
           <Link to="/" className="text-decoration-none d-flex align-items-center gap-2 shadow-sm" style={{
-            backgroundColor: '#020403',
-            color: '#fac371',
+            backgroundColor: '#000080',
+            color: '#fffcfc',
             padding: '8px 16px',
             borderRadius: '12px',
             width: 'fit-content'
@@ -103,11 +103,11 @@ export default function Loginform() {
 
         <form onSubmit={handleSubmit}>
           {/* Phone Input */}
-          <div className="form-group mb-4">
+          <div className="form-group mb-4 mt-4">
             <label style={{
               fontWeight: '500',
               fontSize: '18px',
-              color: '#000000'
+              color: '#000080'
             }}>
               Phone Number
             </label>
@@ -116,11 +116,10 @@ export default function Loginform() {
               onlyCountries={['in']}
               value={phone}
               onChange={(value) => {
-                // Ensure value starts with 91 if it's missing but let the component handle the prefix
                 setPhone(value);
               }}
               inputClass={`form-control shadow ${errors.phone ? 'is-invalid' : ''}`}
-              inputStyle={{ width: '100%', height: '56px', borderColor: '#fac371' }}
+              inputStyle={{ width: '100%', height: '56px', borderColor: '#000080' }}
               disableDropdown
               countryCodeEditable={false}
             />
@@ -131,7 +130,7 @@ export default function Loginform() {
 
           {/* Password Input */}
           <div className="form-group mb-4">
-            <label style={{ fontWeight: '500', fontSize: '18px', color: '#000000' }}>
+            <label style={{ fontWeight: '500', fontSize: '18px', color: '#000080' }}>
               Password
             </label>
             <div style={{ position: 'relative' }}>
@@ -139,7 +138,7 @@ export default function Loginform() {
                 type={showPassword ? "text" : "password"}
                 className={`form-control shadow ${errors.password ? 'is-invalid' : ''}`}
                 style={{
-                  borderColor: '#fac371',
+                  borderColor: '#000080',
                   height: '56px',
                   paddingRight: '40px'
                 }}
@@ -155,7 +154,7 @@ export default function Loginform() {
                   top: '50%',
                   transform: 'translateY(-50%)',
                   cursor: 'pointer',
-                  color: '#fac371',
+                  color: '#000080',
                   fontSize: '1.2rem'
                 }}
               />
@@ -171,11 +170,11 @@ export default function Loginform() {
           )}
 
           <div className="text-center mt-4">
-            <span>Don't have an account? </span>
+            <span style={{ color: '#000080' }}>Don't have an account? </span>
             <NavLink
               to="/register"
               className="text-decoration-none fw-bold"
-              style={{ color: '#000000' }}
+              style={{ color: '#000080' }}
             >
               Register Now
             </NavLink>
@@ -185,7 +184,7 @@ export default function Loginform() {
           <button
             type="submit"
             className="btn w-100 rounded mt-3"
-            style={{ backgroundColor: '#020403', color: '#fac371' }}
+            style={{ backgroundColor: '#000080', color: '#fffcfc', fontWeight: 'bold' }}
             disabled={loading}
           >
             {loading ? 'Logging in...' : 'Login'}
@@ -211,7 +210,7 @@ export default function Loginform() {
                     <FontAwesomeIcon icon={faCheck} style={{ fontSize: '40px' }} />
                   </div>
 
-                  {/* Success Message (this is blurred in the image) */}
+                  {/* Success Message */}
                   <div className="text-muted mb-4">
                     <p>Login Successful!</p>
                   </div>
@@ -221,7 +220,7 @@ export default function Loginform() {
                     className="btn w-100 text-white rounded-pill py-3"
                     onClick={handleModalClose}
                     style={{
-                      backgroundColor: '#fac371',
+                      backgroundColor: '#000080',
                       fontSize: '18px',
                       fontWeight: '500'
                     }}

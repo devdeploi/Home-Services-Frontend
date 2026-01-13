@@ -188,11 +188,11 @@ const OtpVerification = ({ show, onClose, mobileNumber, onSuccess, initialOtp = 
         position: 'relative'
       }}>
         <div className="position-absolute top-0 start-0 p-3">
-          <span onClick={onClose} style={{ cursor: 'pointer', color: '#fac371' }}>
+          <span onClick={onClose} style={{ cursor: 'pointer', color: '#000080' }}>
             <FontAwesomeIcon icon={faTimes} size="lg" />
           </span>
         </div>
-        <h3 style={{ color: '#fac371', textAlign: 'center', marginBottom: '1.5rem' }}>OTP Verification</h3>
+        <h3 style={{ color: '#000080', textAlign: 'center', marginBottom: '1.5rem' }}>OTP Verification</h3>
 
         <p style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
           Enter the 4-digit code sent to{' '}
@@ -216,7 +216,7 @@ const OtpVerification = ({ show, onClose, mobileNumber, onSuccess, initialOtp = 
                 fontSize: '24px',
                 textAlign: 'center',
                 borderRadius: '10px',
-                border: '1px solid #fac371',
+                border: '1px solid #000080',
                 outline: 'none'
               }}
               className="shadow"
@@ -234,7 +234,7 @@ const OtpVerification = ({ show, onClose, mobileNumber, onSuccess, initialOtp = 
           onClick={verifyOtp}
           disabled={loading || otp.includes('')}
           className="btn w-100 mb-3 text-white"
-          style={{ backgroundColor: '#fac371', height: '50px' }}
+          style={{ backgroundColor: '#000080', height: '50px' }}
         >
           {loading ? 'Verifying...' : 'Verify OTP'}
         </button>
@@ -250,7 +250,7 @@ const OtpVerification = ({ show, onClose, mobileNumber, onSuccess, initialOtp = 
                 style={{
                   background: 'none',
                   border: 'none',
-                  color: '#fac371',
+                  color: '#000080',
                   fontWeight: 'bold',
                   padding: 0,
                   cursor: 'pointer'

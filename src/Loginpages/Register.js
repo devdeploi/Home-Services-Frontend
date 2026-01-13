@@ -141,7 +141,7 @@ export default function Register() {
   };
 
   return (
-    <div className="d-flex flex-column bg-white" style={{ minHeight: '100vh' }}>
+    <div className="d-flex flex-column" style={{ minHeight: '100vh', backgroundColor: '#fffcfc' }}>
       <Header />
       <div className="container">
         {/* Success Modal */}
@@ -156,10 +156,10 @@ export default function Register() {
               textAlign: 'center', width: '80%', maxWidth: '400px'
             }}>
               <img src="/images/tick.png" alt="" className='my-3' />
-              <h3 style={{ color: '#fac371' }} className='my-3'>Account created</h3>
-              <h3 style={{ color: '#fac371', marginBottom: '1rem' }}>Successfully</h3>
+              <h3 style={{ color: '#000080' }} className='my-3'>Account created</h3>
+              <h3 style={{ color: '#000080', marginBottom: '1rem' }}>Successfully</h3>
               <Link to="/" className="btn" style={{
-                backgroundColor: '#fac371', color: 'white',
+                backgroundColor: '#000080', color: 'white',
                 padding: '0.5rem 2rem', borderRadius: '5px'
               }} onClick={() => setShowSuccessModal(false)}>
                 Back
@@ -179,8 +179,8 @@ export default function Register() {
 
         <div className='pt-3 ps-3'>
           <Link to="/" className="text-decoration-none d-flex align-items-center gap-2 shadow-sm" style={{
-            backgroundColor: '#020403',
-            color: '#fac371',
+            backgroundColor: '#000080',
+            color: '#fffcfc',
             padding: '8px 16px',
             borderRadius: '12px',
             width: 'fit-content'
@@ -191,12 +191,12 @@ export default function Register() {
         </div>
 
         <form onSubmit={handleSubmit}>
-          <div className="form-group mb-3">
-            <label style={{ fontWeight: '500', fontSize: '18px', color: '#000000' }}>Enter your Full Name</label>
+          <div className="form-group mb-3 mt-4">
+            <label style={{ fontWeight: '500', fontSize: '18px', color: '#000080' }}>Enter your Full Name</label>
             <input
               type="text"
               className={`form-control shadow ${errors.name ? 'is-invalid' : ''}`}
-              style={{ borderColor: '#fac371', height: '56px' }}
+              style={{ borderColor: '#000080', height: '56px' }}
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -206,7 +206,7 @@ export default function Register() {
           </div>
 
           <div className="form-group mb-4">
-            <label style={{ fontWeight: '500', fontSize: '18px', color: '#000000' }}>Phone Number</label>
+            <label style={{ fontWeight: '500', fontSize: '18px', color: '#000080' }}>Phone Number</label>
             <PhoneInput
               country={'in'}
               onlyCountries={['in']}
@@ -215,7 +215,7 @@ export default function Register() {
                 setPhone(value);
               }}
               inputClass={`form-control shadow ${errors.phone ? 'is-invalid' : ''}`}
-              inputStyle={{ width: '100%', height: '56px', borderColor: '#fac371' }}
+              inputStyle={{ width: '100%', height: '56px', borderColor: '#000080' }}
               disableDropdown
               countryCodeEditable={false}
             />
@@ -225,13 +225,13 @@ export default function Register() {
           </div>
 
           <div className="form-group mb-3">
-            <label style={{ fontWeight: '500', fontSize: '18px', color: '#000000' }}>Password</label>
+            <label style={{ fontWeight: '500', fontSize: '18px', color: '#000080' }}>Password</label>
             <div style={{ position: 'relative' }}>
               <input
                 type={showPassword ? "text" : "password"}
                 className={`form-control shadow ${errors.password ? 'is-invalid' : ''}`}
                 style={{
-                  borderColor: '#fac371',
+                  borderColor: '#000080',
                   height: '56px',
                   paddingRight: '40px'
                 }}
@@ -247,7 +247,7 @@ export default function Register() {
                   top: '50%',
                   transform: 'translateY(-50%)',
                   cursor: 'pointer',
-                  color: '#fac371',
+                  color: '#000080',
                   fontSize: '1.2rem'
                 }}
               />
@@ -258,10 +258,10 @@ export default function Register() {
           </div>
 
           <div className="text-center">
-            <span>Already have an account? </span>
+            <span style={{ color: '#000080' }}>Already have an account? </span>
             <Link to="/login"
               className="text-decoration-none fw-bold"
-              style={{ color: '#000000' }}
+              style={{ color: '#000080' }}
             >
               Login
             </Link>
@@ -271,7 +271,7 @@ export default function Register() {
             <div className="alert alert-danger mt-3">{apiError}</div>
           )}
 
-          <button type="submit" className="btn w-100 mt-3 mb-3 rounded" style={{ backgroundColor: '#020403', color: '#fac371' }}>
+          <button type="submit" className="btn w-100 mt-3 mb-3 rounded" style={{ backgroundColor: '#000080', color: '#fffcfc', fontWeight: 'bold' }}>
             Register
           </button>
         </form>

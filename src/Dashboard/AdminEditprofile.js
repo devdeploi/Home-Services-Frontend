@@ -86,13 +86,13 @@ export default function AdminEditprofile() {
 
   return (
     <div className="container mt-4">
-      <h5 className="fw-bold text-start" style={{ color: '#fac371' }}>Edit Profile</h5>
+      <h5 className="fw-bold text-start" style={{ color: '#000080' }}>Edit Profile</h5>
 
       <form onSubmit={handleSubmit} className="mt-4">
         {error && <div className="alert alert-danger">{error}</div>}
 
         <div className="mb-3">
-          <label htmlFor="user_name" className="form-label" style={{ color: '#000000' }}>User Name</label>
+          <label htmlFor="user_name" className="form-label" style={{ color: '#000080' }}>User Name</label>
           <input
             type="text"
             className="form-control shadow-sm"
@@ -106,7 +106,7 @@ export default function AdminEditprofile() {
         </div>
 
         <div className="mb-3">
-          <label htmlFor="mobile_no" className="form-label" style={{ color: '#000000' }}>Phone Number</label>
+          <label htmlFor="mobile_no" className="form-label" style={{ color: '#000080' }}>Phone Number</label>
           <PhoneInput
             country={'in'}
             onlyCountries={['in']}
@@ -115,7 +115,7 @@ export default function AdminEditprofile() {
               setUserData({ ...userData, mobile_no: value });
             }}
             inputClass="form-control shadow-sm"
-            inputStyle={{ width: '100%', height: '56px', borderColor: '#fac371' }}
+            inputStyle={{ width: '100%', height: '56px', borderColor: '#000080' }}
             disableDropdown
             countryCodeEditable={false}
           />
@@ -132,7 +132,7 @@ export default function AdminEditprofile() {
           <button
             type="submit"
             className="btn"
-            style={{ backgroundColor: '#020403', color: '#fac371' }}
+            style={{ backgroundColor: '#000080', color: '#fffcfc', fontWeight: 'bold' }}
           >
             Save Changes
           </button>

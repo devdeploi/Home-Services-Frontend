@@ -33,24 +33,24 @@ export default function Menucard() {
   }, []);
 
   return (
-    <div className="d-flex flex-column bg-white">
+    <div className="d-flex flex-column" style={{ backgroundColor: '#fffcfc', minHeight: '100vh' }}>
       <Header />
       {loading ? (
         <div className="d-flex justify-content-center align-items-center gap-2" style={{ minHeight: '80vh' }}>
-          <div className="spinner-border" style={{ color: '#020403' }} role="status">
+          <div className="spinner-border" style={{ color: '#000080' }} role="status">
             <span className="visually-hidden">Loading...</span>
           </div>
-          <span className="fw-bold" style={{ color: '#020403' }}>Loading services...</span>
+          <span className="fw-bold" style={{ color: '#000080' }}>Loading services...</span>
         </div>
       ) : error ? (
         <div className="container py-4 text-center text-danger">Error: {error}</div>
       ) : (
         <div className="container py-4">
-          <div className="sticky-top bg-white py-3 px-3">
+          <div className="sticky-top py-3 px-3" style={{ backgroundColor: '#fffcfc' }}>
             <div className="d-flex align-items-center justify-content-center position-relative">
               <Link to="/" className="text-decoration-none d-flex align-items-center gap-2 shadow-sm position-absolute start-0" style={{
-                backgroundColor: '#020403',
-                color: '#fac371',
+                backgroundColor: '#000080',
+                color: '#fffcfc',
                 padding: '8px 16px',
                 borderRadius: '12px',
                 width: 'fit-content',
@@ -59,7 +59,7 @@ export default function Menucard() {
                 <FontAwesomeIcon icon={faArrowLeft} style={{ fontSize: '1.2rem' }} />
                 <span className="fw-bold">Back</span>
               </Link>
-              <h4 className="mb-0 fw-bold" style={{ color: '#fac371' }}>
+              <h4 className="mb-0 fw-bold" style={{ color: '#000080' }}>
                 All services
               </h4>
             </div>
@@ -90,7 +90,7 @@ export default function Menucard() {
                         backgroundPosition: 'center',
                       }}
                     ></div>
-                    <div style={{ color: '#020403' }} className="fw-medium small">
+                    <div style={{ color: '#000080' }} className="fw-medium small">
                       {service.serv_name}
                     </div>
                   </div>

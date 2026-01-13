@@ -132,12 +132,12 @@ export default function Adminservicemenu() {
 
   return (
     <div className="container py-4">
-      <div className="sticky-top bg-white py-3">
+      <div className="sticky-top py-3" style={{ backgroundColor: '#fffcfc' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <h5 className="mb-0 text-primary fw-bold">
             <Link to="/dashboard" className="text-decoration-none d-flex align-items-center gap-2 shadow-sm" style={{
-              backgroundColor: '#020403',
-              color: '#fac371',
+              backgroundColor: '#000080',
+              color: '#fffcfc',
               padding: '8px 16px',
               borderRadius: '12px',
               width: 'fit-content'
@@ -148,7 +148,7 @@ export default function Adminservicemenu() {
           </h5>
 
           <Button
-            style={{ backgroundColor: '#020403', borderColor: '#fac371', color: '#fac371' }}
+            style={{ backgroundColor: '#000080', borderColor: '#000080', color: '#fffcfc' }}
             className=""
             onClick={() => setShowCreate(true)}
           >
@@ -159,7 +159,7 @@ export default function Adminservicemenu() {
 
       <Row className="mb-4">
         <Col>
-          <h2 className="fw-bold text-center" style={{ color: '#fac371' }}>Manage Services</h2>
+          <h2 className="fw-bold text-center" style={{ color: '#000080' }}>Manage Services</h2>
 
         </Col>
       </Row>
@@ -168,7 +168,7 @@ export default function Adminservicemenu() {
 
       {loading ? (
         <div className="d-flex justify-content-center align-items-center" style={{ minHeight: '60vh' }}>
-          <Spinner animation="border" role="status" style={{ color: '#020403' }}>
+          <Spinner animation="border" role="status" style={{ color: '#000080' }}>
             <span className="visually-hidden">Loading...</span>
           </Spinner>
         </div>
@@ -187,7 +187,7 @@ export default function Adminservicemenu() {
                     backgroundPosition: 'center',
                   }}
                 ></div>
-                <div style={{ color: '#020403' }} className="fw-medium small">
+                <div style={{ color: '#000080' }} className="fw-medium small">
                   {service.serv_name}
                 </div>
                 <div className="d-flex justify-content-center gap-2 mt-2">
@@ -247,7 +247,7 @@ export default function Adminservicemenu() {
             <Button variant="secondary" onClick={() => setShowCreate(false)}>
               Close
             </Button>
-            <Button type="submit" style={{ backgroundColor: '#020403', color: '#fac371', border: 'none' }}>
+            <Button type="submit" style={{ backgroundColor: '#000080', color: '#fffcfc', border: 'none' }}>
               Create
             </Button>
           </Modal.Footer>
@@ -290,7 +290,7 @@ export default function Adminservicemenu() {
             <Button variant="secondary" onClick={() => setShowEdit(false)}>
               Close
             </Button>
-            <Button type="submit" style={{ backgroundColor: '#020403', color: '#fac371', border: 'none' }}>
+            <Button type="submit" style={{ backgroundColor: '#000080', color: '#fffcfc', border: 'none' }}>
               Save Changes
             </Button>
           </Modal.Footer>

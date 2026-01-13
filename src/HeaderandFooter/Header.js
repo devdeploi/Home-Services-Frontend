@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Header() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <nav className="navbar navbar-expand-lg navbar-dark shadow-sm" style={{ backgroundColor: '#fffcfc' }}>
       <div className="container-fluid">
         <div className="navbar-brand d-flex align-items-center">
           <img
@@ -16,8 +16,8 @@ export default function Header() {
             style={{ marginLeft: '10px' }}
           />
           <div className="d-flex flex-column">
-            <span style={{ color: '#fac371', fontWeight: 'bold', fontSize: '1.25rem', lineHeight: '1' }}>Home Service</span>
-            <small className="text-muted" style={{ fontSize: '0.8rem', fontStyle: 'italic' }}>Excellence in Service</small>
+            <span style={{ color: '#000080', fontWeight: 'bold', fontSize: '1.25rem', lineHeight: '1' }}>Home Service</span>
+            <small style={{ fontSize: '0.8rem', fontStyle: 'italic', color: '#000080', opacity: 0.8 }}>Excellence in Service</small>
           </div>
         </div>
       </div>

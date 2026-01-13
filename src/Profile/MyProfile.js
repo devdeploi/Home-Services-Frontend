@@ -74,7 +74,7 @@ export default function MyProfile() {
             alt="Loading"
             style={{ width: '80px', height: '80px', marginBottom: '20px' }}
           />
-          <p style={{ color: '#020403', fontSize: '18px' }}>Loading Profile...</p>
+          <p style={{ color: '#000080', fontSize: '18px' }}>Loading Profile...</p>
         </div>
       </div>
     );
@@ -103,7 +103,7 @@ export default function MyProfile() {
           }}>
             <img src="/images/Logoout.png" alt="Logoout" style={{ height: '87px', width: '79px' }} className='m-auto' />
             <h5 style={{
-              color: '#fac371',
+              color: '#000080',
               marginBottom: '15px',
               fontSize: '20px',
               fontWeight: '600',
@@ -116,8 +116,8 @@ export default function MyProfile() {
               <button
                 onClick={handleLogout}
                 style={{
-                  backgroundColor: '#020403',
-                  color: '#fac371',
+                  backgroundColor: '#000080',
+                  color: '#fffcfc',
                   border: 'none',
                   padding: '10px',
                   borderRadius: '8px',
@@ -135,9 +135,9 @@ export default function MyProfile() {
               <button
                 onClick={() => setShowLogoutModal(false)}
                 style={{
-                  border: '2px solid #fac371',
-                  backgroundColor: '#020403',
-                  color: '#fac371',
+                  border: '2px solid #000080',
+                  backgroundColor: '#000080',
+                  color: '#fffcfc',
                   cursor: 'pointer',
                   flex: 1,
                   padding: '10px',
@@ -152,7 +152,7 @@ export default function MyProfile() {
           </div>
         </div>
       )}
-      <h5 className="fw-bold text-strat" style={{ color: '#fac371' }}>My Profile</h5>
+      <h5 className="fw-bold text-strat" style={{ color: '#000080' }}>My Profile</h5>
       <img
         src={userData?.profile_image || "/images/Ellipse.png"}
         alt="Profile"
@@ -163,31 +163,31 @@ export default function MyProfile() {
       <div className="list-group mt-4">
         {/* Edit Profile */}
         <Link to="/Edit-profile" className="text-decoration-none mb-3 shadow rounded px-3 py-2 d-flex justify-content-between align-items-center">
-          <div className="d-flex align-items-center" style={{ color: '#020403' }}>
+          <div className="d-flex align-items-center" style={{ color: '#000080' }}>
             <img src="/images/Edit.png" alt="" className="me-2" /> Edit Profile
           </div>
-          <div className="d-flex justify-content-center align-items-center" style={{ height: '35px', width: '35px', backgroundColor: '#020403', borderRadius: '6px' }}>
-            <i className="bi bi-chevron-right" style={{ color: '#fac371' }}></i>
+          <div className="d-flex justify-content-center align-items-center" style={{ height: '35px', width: '35px', backgroundColor: '#000080', borderRadius: '6px' }}>
+            <i className="bi bi-chevron-right" style={{ color: '#fffcfc' }}></i>
           </div>
         </Link>
 
         {/* Booked History */}
         <Link to="/Booked-history" className="text-decoration-none mb-3 shadow rounded px-3 py-2 d-flex justify-content-between align-items-center">
-          <div className="d-flex align-items-center" style={{ color: '#020403' }}>
+          <div className="d-flex align-items-center" style={{ color: '#000080' }}>
             <img src="/images/Help.png" alt="" className="me-2" /> Booked History
           </div>
-          <div className="d-flex justify-content-center align-items-center" style={{ height: '35px', width: '35px', backgroundColor: '#020403', borderRadius: '6px' }}>
-            <i className="bi bi-chevron-right" style={{ color: '#fac371' }}></i>
+          <div className="d-flex justify-content-center align-items-center" style={{ height: '35px', width: '35px', backgroundColor: '#000080', borderRadius: '6px' }}>
+            <i className="bi bi-chevron-right" style={{ color: '#fffcfc' }}></i>
           </div>
         </Link>
 
         {/* Help & Support */}
         <Link to="/Help-support" className="text-decoration-none mb-3 shadow rounded px-3 py-2 d-flex justify-content-between align-items-center">
-          <div className="d-flex align-items-center" style={{ color: '#020403' }}>
+          <div className="d-flex align-items-center" style={{ color: '#000080' }}>
             <img src="/images/Help.png" alt="" className="me-2" /> Help & Support
           </div>
-          <div className="d-flex justify-content-center align-items-center" style={{ height: '35px', width: '35px', backgroundColor: '#020403', borderRadius: '6px' }}>
-            <i className="bi bi-chevron-right" style={{ color: '#fac371' }}></i>
+          <div className="d-flex justify-content-center align-items-center" style={{ height: '35px', width: '35px', backgroundColor: '#000080', borderRadius: '6px' }}>
+            <i className="bi bi-chevron-right" style={{ color: '#fffcfc' }}></i>
           </div>
         </Link>
 
@@ -195,7 +195,7 @@ export default function MyProfile() {
         <div
           onClick={() => setShowLogoutModal(true)}
           className="text-decoration-none mt-3 shadow rounded px-3 py-2 d-flex align-items-center"
-          style={{ color: '#020403', cursor: 'pointer' }}
+          style={{ color: '#000080', cursor: 'pointer' }}
         >
           <img src="/images/Logout.png" alt="" className="me-2" /> Logout
         </div>

@@ -44,10 +44,10 @@ export default function Homepages() {
 
   if (loading) {
     return <div className="d-flex justify-content-center align-items-center vh-100 gap-2">
-      <div className="spinner-border" style={{ color: '#020403' }} role="status">
+      <div className="spinner-border" style={{ color: '#000080' }} role="status">
         <span className="visually-hidden">Loading...</span>
       </div>
-      <span className="fw-bold" style={{ color: '#020403' }}>Loading services...</span>
+      <span className="fw-bold" style={{ color: '#000080' }}>Loading services...</span>
     </div>;
   }
 
@@ -74,8 +74,8 @@ export default function Homepages() {
 
         {/* Popular Services */}
         <div className="d-flex justify-content-between align-items-center mb-2">
-          <h5 style={{ color: '#fac371' }}>Popular Services</h5>
-          <Link to="/services" className="text-decoration-none" style={{ color: '#fac371' }}>View all</Link>
+          <h5 style={{ color: '#000080' }}>Popular Services</h5>
+          <Link to="/services" className="text-decoration-none" style={{ color: '#000080' }}>View all</Link>
         </div>
 
         <div className="row text-center mb-4">
@@ -103,7 +103,7 @@ export default function Homepages() {
                       style={{ objectFit: 'contain' }}
                     />
                   </div>
-                  <div style={{ color: '#020403' }} className="mt-2">
+                  <div style={{ color: '#000080' }} className="mt-2">
                     {service.serv_name}
                   </div>
                 </div>

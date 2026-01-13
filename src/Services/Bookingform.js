@@ -137,7 +137,7 @@ export default function Bookingform() {
   };
 
   return (
-    <div className="d-flex flex-column align-items-center justify-content-center bg-white">
+    <div className="d-flex flex-column align-items-center justify-content-center" style={{ backgroundColor: '#fffcfc' }}>
       <div className="position-relative w-100 mb-4">
         <Header />
       </div>
@@ -145,8 +145,8 @@ export default function Bookingform() {
       <div className="container-fluid px-4">
         <div className="w-100 mb-3">
           <Link to="/services" className="text-decoration-none d-flex align-items-center gap-2 shadow-sm" style={{
-            backgroundColor: '#020403',
-            color: '#fac371',
+            backgroundColor: '#000080',
+            color: '#fffcfc',
             padding: '8px 16px',
             borderRadius: '12px',
             width: 'fit-content'
@@ -182,13 +182,13 @@ export default function Bookingform() {
               <p
                 className="fw-medium text-center mx-auto"
                 style={{
-                  color: '#000000',
+                  color: '#000080',
                   fontSize: '14px',
                   wordBreak: 'break-word',
                   marginBottom: 0
                 }}
               >
-                Your selected <span className="fw-bold" style={{ color: '#fac371' }}>{service.serv_name}</span> — confirm your details to book service.
+                Your selected <span className="fw-bold" style={{ color: '#000080' }}>{service.serv_name}</span> — confirm your details to book service.
               </p>
             </div>
           ) : (
@@ -205,7 +205,7 @@ export default function Bookingform() {
 
         <form className="w-100 mt-3" onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label htmlFor="name" className="form-label fw-semibold" style={{ color: '#000000', fontSize: '14px' }}>Name</label>
+            <label htmlFor="name" className="form-label fw-semibold" style={{ color: '#000080', fontSize: '14px' }}>Name</label>
             <input
               type="text"
               className={`form-control ${errors.name ? 'is-invalid' : ''}`}
@@ -226,7 +226,7 @@ export default function Bookingform() {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="phone" className="form-label fw-semibold" style={{ color: '#000000', fontSize: '14px' }}>Phone number</label>
+            <label htmlFor="phone" className="form-label fw-semibold" style={{ color: '#000080', fontSize: '14px' }}>Phone number</label>
             <PhoneInput
               country={'in'}
               value={phone}
@@ -257,7 +257,7 @@ export default function Bookingform() {
           )}
 
           <div className="mb-3">
-            <label htmlFor="address" className="form-label fw-semibold" style={{ color: '#000000', fontSize: '14px' }}>Address</label>
+            <label htmlFor="address" className="form-label fw-semibold" style={{ color: '#000080', fontSize: '14px' }}>Address</label>
             <input
               type="text"
               className={`form-control ${errors.address ? 'is-invalid' : ''}`}
@@ -276,7 +276,7 @@ export default function Bookingform() {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="town" className="form-label fw-semibold" style={{ color: '#000000', fontSize: '14px' }}>Town</label>
+            <label htmlFor="town" className="form-label fw-semibold" style={{ color: '#000080', fontSize: '14px' }}>Town</label>
             <input
               type="text"
               className={`form-control ${errors.town ? 'is-invalid' : ''}`}
@@ -298,9 +298,9 @@ export default function Bookingform() {
             type="submit"
             className="btn w-100 fw-bold"
             style={{
-              backgroundColor: '#020403',
+              backgroundColor: '#000080',
               borderRadius: '12px',
-              color: '#fac371',
+              color: '#fffcfc',
               padding: '10px 0'
             }}
           >
@@ -316,9 +316,9 @@ export default function Bookingform() {
               <img src="/images/tick.png" alt="" />
             </div>
           </div>
-          <h5 className="fw-bold mb-2" style={{ color: '#fac371' }}>Service Booked Successfully</h5>
+          <h5 className="fw-bold mb-2" style={{ color: '#000080' }}>Service Booked Successfully</h5>
           <p className="text-muted">We will get back to you soon</p>
-          <Link to="/Booked-history" className="btn mt-3 w-100 fw-bold" style={{ backgroundColor: '#020403', borderRadius: '12px', borderColor: '#fac371', color: '#fac371', textAlign: 'center' }}>
+          <Link to="/Booked-history" className="btn mt-3 w-100 fw-bold" style={{ backgroundColor: '#000080', borderRadius: '12px', borderColor: '#000080', color: '#fffcfc', textAlign: 'center' }}>
             Home
           </Link>
         </Modal.Body>

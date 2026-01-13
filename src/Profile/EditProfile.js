@@ -109,13 +109,13 @@ export default function EditProfile() {
   };
 
   return (
-    <div className="d-flex flex-column bg-white" style={{ minHeight: '100vh', backgroundColor: '#fdfdfd' }}>
+    <div className="d-flex flex-column" style={{ minHeight: '100vh', backgroundColor: '#fffcfc' }}>
       <Header />
       <div className="container d-flex flex-column align-items-center py-5">
         <div className="w-100 d-flex align-items-start">
           <Link to="/MyProfile" className="text-decoration-none d-flex align-items-center gap-2 shadow-sm" style={{
-            backgroundColor: '#020403',
-            color: '#fac371',
+            backgroundColor: '#000080',
+            color: '#fffcfc',
             padding: '8px 16px',
             borderRadius: '12px',
           }}>
@@ -125,7 +125,7 @@ export default function EditProfile() {
         </div>
 
         <div className="mb-3 w-100">
-          <label htmlFor="name" className="form-label" style={{ color: '#000000' }}>
+          <label htmlFor="name" className="form-label" style={{ color: '#000080' }}>
             Name
           </label>
           <input
@@ -141,7 +141,7 @@ export default function EditProfile() {
         </div>
 
         <div className="mb-4 w-100">
-          <label className="form-label fw-bold" style={{ color: '#fac371' }}>
+          <label className="form-label fw-bold" style={{ color: '#000080' }}>
             Phone number
           </label>
           <PhoneInput
@@ -168,7 +168,7 @@ export default function EditProfile() {
 
         <button
           className="btn w-100 my-5"
-          style={{ backgroundColor: '#020403', color: '#fac371', height: '56px' }}
+          style={{ backgroundColor: '#000080', color: '#fffcfc', height: '56px', fontWeight: 'bold' }}
           onClick={handleSave}
           disabled={loading}
         >

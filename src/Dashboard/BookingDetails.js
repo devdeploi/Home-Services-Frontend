@@ -42,15 +42,15 @@ export default function BookingDetails() {
   // Get status text and corresponding styling
   const getStatusInfo = (status) => {
     if (status === undefined || status === null) {
-      return { text: 'Unknown', color: '#fac371' };
+      return { text: 'Unknown', color: '#000080' };
     }
     const statusMap = {
-      '1': { text: 'Pending', color: '#020403' },
-      '2': { text: 'On Progress', color: '#020403' },
-      '3': { text: 'Completed', color: '#020403' },
-      '4': { text: 'Cancelled', color: '#020403' }
+      '1': { text: 'Pending', color: '#000080' },
+      '2': { text: 'On Progress', color: '#000080' },
+      '3': { text: 'Completed', color: '#000080' },
+      '4': { text: 'Cancelled', color: '#000080' }
     };
-    return statusMap[status.toString()] || { text: 'Unknown', color: '#020403' };
+    return statusMap[status.toString()] || { text: 'Unknown', color: '#000080' };
   };
 
   // Filter bookings based on search term
@@ -136,7 +136,7 @@ export default function BookingDetails() {
   if (loading) {
     return (
       <div className="d-flex justify-content-center align-items-center" style={{ minHeight: '60vh' }}>
-        <Spinner animation="border" role="status" style={{ color: '#020403' }}>
+        <Spinner animation="border" role="status" style={{ color: '#000080' }}>
           <span className="visually-hidden">Loading...</span>
         </Spinner>
       </div>
@@ -148,14 +148,14 @@ export default function BookingDetails() {
   }
 
   return (
-    <div className="container-fulied" >
+    <div className="container-fulied" style={{ backgroundColor: '#fffcfc', minHeight: '100vh' }}>
       {/* Header */}
-      <div style={{ position: 'sticky', top: 0, zIndex: 1000, backgroundColor: 'white' }}>
+      <div style={{ position: 'sticky', top: 0, zIndex: 1000, backgroundColor: '#fffcfc' }}>
         {/* Header */}
         <div className="header" style={{ padding: '12px 16px', display: 'flex', alignItems: 'center', borderBottom: '1px solid #eaeaea', gap: '16px' }}>
           <Link to="/dashboard" className="text-decoration-none d-flex align-items-center gap-2 shadow-sm" style={{
-            backgroundColor: '#020403',
-            color: '#fac371',
+            backgroundColor: '#000080',
+            color: '#fffcfc',
             padding: '8px 16px',
             borderRadius: '12px',
             width: 'fit-content'
@@ -163,7 +163,7 @@ export default function BookingDetails() {
             <FontAwesomeIcon icon={faArrowLeft} style={{ fontSize: '1.2rem' }} />
             <span className="fw-bold">Back</span>
           </Link>
-          <h4 style={{ margin: 0, color: '#fac371', fontWeight: 'bold', flex: 1, textAlign: 'center' }}>Booked History</h4>
+          <h4 style={{ margin: 0, color: '#000080', fontWeight: 'bold', flex: 1, textAlign: 'center' }}>Booked History</h4>
         </div>
 
         {/* Search Bar */}
@@ -173,7 +173,7 @@ export default function BookingDetails() {
             placeholder="Search bookings..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            style={{ width: '100%', padding: '8px 12px', borderRadius: '20px', border: '1px solid black' }}
+            style={{ width: '100%', padding: '8px 12px', borderRadius: '20px', border: '1px solid #000080', backgroundColor: 'white' }}
           />
         </div>
       </div>
@@ -202,15 +202,15 @@ export default function BookingDetails() {
             {/* Service Info */}
             <div style={{ marginBottom: '12px' }}>
               <div style={{ display: 'flex' }}>
-                <div style={{ fontWeight: 'bold', color: '#fac371', marginRight: '8px' }}>Name:</div>
+                <div style={{ fontWeight: 'bold', color: '#000080', marginRight: '8px' }}>Name:</div>
                 <div>{booking.user_name}</div>
               </div>
               <div style={{ display: 'flex', marginBottom: '8px' }}>
-                <div style={{ fontWeight: 'bold', color: '#fac371', marginRight: '8px' }}>Service:</div>
+                <div style={{ fontWeight: 'bold', color: '#000080', marginRight: '8px' }}>Service:</div>
                 <div>{booking.serv_name}</div>
               </div>
               <div style={{ display: 'flex', marginBottom: '8px' }}>
-                <div style={{ fontWeight: 'bold', color: '#fac371', marginRight: '8px' }}>Mobile No:</div>
+                <div style={{ fontWeight: 'bold', color: '#000080', marginRight: '8px' }}>Mobile No:</div>
                 <div>{booking.mobile_no}</div>
               </div>
 
@@ -223,7 +223,7 @@ export default function BookingDetails() {
                   width: '100%',
                   padding: '10px',
                   backgroundColor: getStatusInfo(booking.status).color,
-                  color: '#fac371',
+                  color: '#fffcfc',
                   border: 'none',
                   borderRadius: '15px',
                   fontWeight: 'bold',
@@ -241,8 +241,8 @@ export default function BookingDetails() {
                 onClick={() => openEditModal(booking)}
                 style={{
                   backgroundColor: 'transparent',
-                  border: '1px solid #fac371',
-                  color: '#fac371',
+                  border: '1px solid #000080',
+                  color: '#000080',
                   borderRadius: '4px',
                   padding: '6px 12px',
                   marginRight: '5px',
@@ -309,7 +309,7 @@ export default function BookingDetails() {
             <Button variant="secondary" onClick={() => setShowEditModal(false)}>
               Close
             </Button>
-            <Button variant="primary" type="submit" style={{ backgroundColor: '#fac371', borderColor: '#fac371' }}>
+            <Button variant="primary" type="submit" style={{ backgroundColor: '#000080', borderColor: '#000080', color: '#fffcfc' }}>
               Save Changes
             </Button>
           </Modal.Footer>

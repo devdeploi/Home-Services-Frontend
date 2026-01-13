@@ -18,13 +18,13 @@
   "screenshots": [
     {
       "src": "screenshot-desktop.png",
-      "sizes": "1600x1100",
+      "sizes": "1600x1156",
       "type": "image/png",
       "form_factor": "wide"
     },
     {
       "src": "screenshot-mobile.png",
-      "sizes": "1312x2742",
+      "sizes": "338x400",
       "type": "image/png"
     }
   ],
@@ -33,6 +33,6 @@
   "display": "standalone",
   "description": "Professional home services at your doorstep.",
   "orientation": "any",
-  "theme_color": "#fac371",
-  "background_color": "#020403"
+  "theme_color": "#fffcfc",
+  "background_color": "#000080"
 }

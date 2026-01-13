@@ -73,8 +73,8 @@ export default function Adminlogin() {
       {/* Back Arrow */}
       <div className='pt-3 ps-3'>
         <Link to="/" className="text-decoration-none d-flex align-items-center gap-2 shadow-sm" style={{
-          backgroundColor: '#020403',
-          color: '#fac371',
+          backgroundColor: '#000080',
+          color: '#fffcfc',
           padding: '8px 16px',
           borderRadius: '12px',
           width: 'fit-content'
@@ -96,7 +96,7 @@ export default function Adminlogin() {
       <form onSubmit={handleSubmit}>
         {/* Phone Input */}
         <div className="form-group mb-4">
-          <label style={{ fontWeight: '500', fontSize: '18px', color: '#000000' }}>
+          <label style={{ fontWeight: '500', fontSize: '18px', color: '#000080' }}>
             Admin Phone Number
           </label>
           <PhoneInput
@@ -107,7 +107,7 @@ export default function Adminlogin() {
               setPhone(value);
             }}
             inputClass={`form-control shadow ${errors.phone ? 'is-invalid' : ''}`}
-            inputStyle={{ width: '100%', height: '56px', borderColor: '#fac371' }}
+            inputStyle={{ width: '100%', height: '56px', borderColor: '#000080' }}
             disableDropdown
             countryCodeEditable={false}
           />
@@ -121,7 +121,7 @@ export default function Adminlogin() {
           <label style={{
             fontWeight: '500',
             fontSize: '18px',
-            color: '#000000'
+            color: '#000080'
           }}>
             Password
           </label>
@@ -130,7 +130,7 @@ export default function Adminlogin() {
               type={showPassword ? "text" : "password"}
               className={`form-control shadow ${errors.password ? 'is-invalid' : ''}`}
               style={{
-                borderColor: '#fac371',
+                borderColor: '#000080',
                 height: '56px',
                 paddingRight: '40px'
               }}
@@ -146,7 +146,7 @@ export default function Adminlogin() {
                 top: '50%',
                 transform: 'translateY(-50%)',
                 cursor: 'pointer',
-                color: '#fac371',
+                color: '#000080',
                 fontSize: '1.2rem'
               }}
             />
@@ -160,7 +160,7 @@ export default function Adminlogin() {
         <button
           type="submit"
           className="btn w-100 rounded mt-3"
-          style={{ backgroundColor: '#020403', color: '#fac371' }}
+          style={{ backgroundColor: '#000080', color: '#fffcfc', fontWeight: 'bold' }}
           disabled={loading}
         >
           {loading ? 'Authenticating...' : 'Admin Login'}

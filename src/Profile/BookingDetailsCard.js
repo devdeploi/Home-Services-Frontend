@@ -26,8 +26,8 @@ const BookingDetailCard = ({ booking }) => {
           className="d-flex align-items-center gap-2 shadow-sm me-3"
           style={{
             cursor: 'pointer',
-            backgroundColor: '#020403',
-            color: '#fac371',
+            backgroundColor: '#000080',
+            color: '#fffcfc',
             padding: '8px 16px',
             borderRadius: '12px',
             width: 'fit-content'
@@ -37,7 +37,7 @@ const BookingDetailCard = ({ booking }) => {
           <span className="fw-bold">Back</span>
         </span>
         <div>
-          <h5 className="mb-0">{booking?.user_name || 'User'}</h5>
+          <h5 className="mb-0" style={{ color: '#000080' }}>{booking?.user_name || 'User'}</h5>
         </div>
       </div>
 
@@ -66,11 +66,11 @@ const BookingDetailCard = ({ booking }) => {
 
           <div className="text-center mb-4">
             <p className="mb-2">
-              <span style={{ color: '#fac371', fontWeight: 'bold' }}>Service:</span>
+              <span style={{ color: '#000080', fontWeight: 'bold' }}>Service:</span>
               <span style={{ fontWeight: 'bold' }}> {booking?.serv_name || 'N/A'}</span>
             </p>
             <p className="mb-2">
-              <span style={{ color: '#fac371', fontWeight: 'bold' }}>Date:</span>
+              <span style={{ color: '#000080', fontWeight: 'bold' }}>Date:</span>
               <span style={{ fontWeight: 'bold' }}> {formatDate(booking?.booked_date)}</span>
             </p>
 
@@ -79,8 +79,8 @@ const BookingDetailCard = ({ booking }) => {
           <button
             className="btn w-100"
             style={{
-              backgroundColor: '#020403',
-              color: '#fac371',
+              backgroundColor: '#000080',
+              color: '#fffcfc',
               borderRadius: '15px',
               padding: '8px 0'
             }}

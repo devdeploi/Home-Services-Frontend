@@ -64,14 +64,14 @@ export default function BookedHistory() {
   }
 
   return (
-    <div className="d-flex flex-column bg-white" style={{ minHeight: '100vh' }}>
+    <div className="d-flex flex-column" style={{ minHeight: '100vh', backgroundColor: '#fffcfc' }}>
       <Header />
       <div className="container mt-4">
         <div className="d-flex justify-content-between align-items-center mb-4">
           <div className="w-100 d-flex align-items-center gap-3">
             <Link to="/MyProfile" className="text-decoration-none d-flex align-items-center gap-2 shadow-sm" style={{
-              backgroundColor: '#020403',
-              color: '#fac371',
+              backgroundColor: '#000080',
+              color: '#fffcfc',
               padding: '8px 16px',
               borderRadius: '12px',
               width: 'fit-content'
@@ -79,16 +79,16 @@ export default function BookedHistory() {
               <FontAwesomeIcon icon={faArrowLeft} style={{ fontSize: '1.2rem' }} />
               <span className="fw-bold">Back</span>
             </Link>
-            <h4 className="my-3" style={{ color: '#fac371' }}>Booked History</h4>
+            <h4 className="my-3" style={{ color: '#000080' }}>Booked History</h4>
           </div>
           <div className="d-flex align-items-center">
-            <h6 className="mt-2">{userData?.user_name || 'User'}</h6>
+            <h6 className="mt-2" style={{ color: '#000080' }}>{userData?.user_name || 'User'}</h6>
           </div>
         </div>
 
         {loading ? (
           <div className="text-center py-5">
-            <div className="spinner-border" style={{ color: '#020403' }} role="status">
+            <div className="spinner-border" style={{ color: '#000080' }} role="status">
               <span className="visually-hidden">Loading...</span>
             </div>
           </div>
@@ -102,8 +102,8 @@ export default function BookedHistory() {
               style={{ width: '150px', height: '150px', opacity: 0.7 }}
               className="mb-3"
             />
-            <h5 style={{ color: '#fac371' }}>No Bookings Found</h5>
-            <p className="text-muted">You haven't made any bookings yet</p>
+            <h5 style={{ color: '#000080' }}>No Bookings Found</h5>
+            <p className="text-muted" style={{ color: '#000080' }}>You haven't made any bookings yet</p>
           </div>
         ) : (
           bookings.map((booking, index) => (
@@ -114,10 +114,10 @@ export default function BookedHistory() {
                   <small>{new Date(booking.created_at).toLocaleDateString()}</small>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: "100px" }}>
-                  <p className="mb-1" style={{ color: '#fac371' }}>
+                  <p className="mb-1" style={{ color: '#000080' }}>
                     <strong>Service:</strong> <strong className="text-dark">{booking.serv_name}</strong>
                   </p>
-                  <p className="mb-2" style={{ color: '#fac371' }}>
+                  <p className="mb-2" style={{ color: '#000080' }}>
                     <strong>Date:</strong> <strong className="text-dark">
                       {new Date(booking.booked_date).toLocaleDateString('en-GB')}
                     </strong>
@@ -126,9 +126,9 @@ export default function BookedHistory() {
                 <button
                   className="btn w-100 mb-3"
                   style={{
-                    backgroundColor: '#020403',
-                    color: '#fac371',
-                    borderColor: '#fac371',
+                    backgroundColor: '#000080',
+                    color: '#fffcfc',
+                    borderColor: '#000080',
                     borderRadius: '15px'
                   }}
                   onClick={() => handleBookingClick({ ...booking, user_name: userData?.user_name })}

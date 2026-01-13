@@ -80,10 +80,10 @@ export default function Dashboardpage() {
     return (
       <Container className="text-center py-5">
         <div className="text-center mt-5">
-          <Spinner animation="border" role="status" style={{ color: '#020403' }}>
+          <Spinner animation="border" role="status" style={{ color: '#000080' }}>
             <span className="visually-hidden">Loading...</span>
           </Spinner>
-          <p className="mt-2" style={{ color: '#020403' }}>Loading...</p>
+          <p className="mt-2" style={{ color: '#000080' }}>Loading...</p>
         </div>
       </Container>
     );
