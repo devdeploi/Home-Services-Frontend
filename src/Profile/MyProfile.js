@@ -70,7 +70,7 @@ export default function MyProfile() {
       <div className="container text-center mt-4" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div>
           <img
-            src="/images/11677497.gif"  // Replace with your actual loading image path
+            src={process.env.PUBLIC_URL + "/images/11677497.gif"}  // Replace with your actual loading image path
             alt="Loading"
             style={{ width: '80px', height: '80px', marginBottom: '20px' }}
           />
@@ -101,7 +101,7 @@ export default function MyProfile() {
             borderRadius: '12px',
             width: '320px'
           }}>
-            <img src="/images/Logoout.png" alt="Logoout" style={{ height: '87px', width: '79px' }} className='m-auto' />
+            <img src={process.env.PUBLIC_URL + "/images/Logoout.png"} alt="Logoout" style={{ height: '87px', width: '79px' }} className='m-auto' />
             <h5 style={{
               color: '#000080',
               marginBottom: '15px',
@@ -154,7 +154,7 @@ export default function MyProfile() {
       )}
       <h5 className="fw-bold text-strat" style={{ color: '#000080' }}>My Profile</h5>
       <img
-        src={userData?.profile_image || "/images/Ellipse.png"}
+        src={(userData?.profile_image?.startsWith('/') ? process.env.PUBLIC_URL + userData.profile_image : userData?.profile_image) || process.env.PUBLIC_URL + "/images/Ellipse.png"}
         alt="Profile"
         className="rounded-circle mt-3"
         style={{ width: '100px', height: '100px' }}
@@ -164,7 +164,7 @@ export default function MyProfile() {
         {/* Edit Profile */}
         <Link to="/Edit-profile" className="text-decoration-none mb-3 shadow rounded px-3 py-2 d-flex justify-content-between align-items-center">
           <div className="d-flex align-items-center" style={{ color: '#000080' }}>
-            <img src="/images/Edit.png" alt="" className="me-2" /> Edit Profile
+            <img src={process.env.PUBLIC_URL + "/images/Edit.png"} alt="" className="me-2" /> Edit Profile
           </div>
           <div className="d-flex justify-content-center align-items-center" style={{ height: '35px', width: '35px', backgroundColor: '#000080', borderRadius: '6px' }}>
             <i className="bi bi-chevron-right" style={{ color: '#fffcfc' }}></i>
@@ -174,7 +174,7 @@ export default function MyProfile() {
         {/* Booked History */}
         <Link to="/Booked-history" className="text-decoration-none mb-3 shadow rounded px-3 py-2 d-flex justify-content-between align-items-center">
           <div className="d-flex align-items-center" style={{ color: '#000080' }}>
-            <img src="/images/Help.png" alt="" className="me-2" /> Booked History
+            <img src={process.env.PUBLIC_URL + "/images/Help.png"} alt="" className="me-2" /> Booked History
           </div>
           <div className="d-flex justify-content-center align-items-center" style={{ height: '35px', width: '35px', backgroundColor: '#000080', borderRadius: '6px' }}>
             <i className="bi bi-chevron-right" style={{ color: '#fffcfc' }}></i>
@@ -184,7 +184,7 @@ export default function MyProfile() {
         {/* Help & Support */}
         <Link to="/Help-support" className="text-decoration-none mb-3 shadow rounded px-3 py-2 d-flex justify-content-between align-items-center">
           <div className="d-flex align-items-center" style={{ color: '#000080' }}>
-            <img src="/images/Help.png" alt="" className="me-2" /> Help & Support
+            <img src={process.env.PUBLIC_URL + "/images/Help.png"} alt="" className="me-2" /> Help & Support
           </div>
           <div className="d-flex justify-content-center align-items-center" style={{ height: '35px', width: '35px', backgroundColor: '#000080', borderRadius: '6px' }}>
             <i className="bi bi-chevron-right" style={{ color: '#fffcfc' }}></i>
@@ -197,7 +197,7 @@ export default function MyProfile() {
           className="text-decoration-none mt-3 shadow rounded px-3 py-2 d-flex align-items-center"
           style={{ color: '#000080', cursor: 'pointer' }}
         >
-          <img src="/images/Logout.png" alt="" className="me-2" /> Logout
+          <img src={process.env.PUBLIC_URL + "/images/Logout.png"} alt="" className="me-2" /> Logout
         </div>
       </div>
       <div style={{ height: '100px' }}></div>

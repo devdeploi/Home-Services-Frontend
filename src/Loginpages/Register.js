@@ -155,7 +155,7 @@ export default function Register() {
               backgroundColor: 'white', padding: '2rem', borderRadius: '10px',
               textAlign: 'center', width: '80%', maxWidth: '400px'
             }}>
-              <img src="/images/tick.png" alt="" className='my-3' />
+              <img src={process.env.PUBLIC_URL + "/images/tick.png"} alt="" className='my-3' />
               <h3 style={{ color: '#000080' }} className='my-3'>Account created</h3>
               <h3 style={{ color: '#000080', marginBottom: '1rem' }}>Successfully</h3>
               <Link to="/" className="btn" style={{

@@ -9,7 +9,7 @@ import { BrowserRouter } from 'react-router-dom'; // ✅ Import this
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter> {/* ✅ Wrap App in Router */}
+    <BrowserRouter basename={process.env.NODE_ENV === 'production' ? process.env.PUBLIC_URL : '/'}> {/* ✅ Wrap App in Router */}
       <App />
     </BrowserRouter>
   </React.StrictMode>

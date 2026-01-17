@@ -34,7 +34,7 @@ export default function Helpandsupport() {
           </div>
 
           <div className="text-center mb-4">
-            <img src='/images/Helpandsup.png' alt="Support Icon" className="img-fluid" style={{ height: '174px', width: '183px' }} />
+            <img src={process.env.PUBLIC_URL + '/images/Helpandsup.png'} alt="Support Icon" className="img-fluid" style={{ height: '174px', width: '183px' }} />
             <h5 className="mt-3" style={{ color: '#000080' }}>Need help? Contact us directly</h5>
           </div>
 

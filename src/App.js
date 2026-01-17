@@ -124,6 +124,9 @@ function App() {
         <Route path='/Booking-details' element={<BookingDetails />} />
         <Route path='/Admin-profile' element={<Adminprofile />} />
         <Route path='/Admin-Edit-profile' element={<AdminEditprofile />} />
+
+        {/* Catch-all route to prevent white screen */}
+        <Route path="*" element={isAdminRole ? <Dashboardpage /> : <Homepages />} />
       </Routes>
 
       {/* Render the appropriate footer based on user role */}

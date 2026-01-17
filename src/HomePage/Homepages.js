@@ -62,7 +62,7 @@ export default function Homepages() {
         {/* Header Image */}
         <div className="mb-3">
           <img
-            src="/images/Plane.jpg"
+            src={process.env.PUBLIC_URL + "/images/Plane.jpg"}
             className="img-fluid w-100"
             style={{
               height: isLargeScreen ? '500px' : 'auto',
@@ -97,7 +97,7 @@ export default function Homepages() {
                   {/* Add back the image and service name elements */}
                   <div className="img-container" style={{ height: '100px' }}>
                     <img
-                      src={service.image_url}
+                      src={service.image_url?.startsWith('/') ? process.env.PUBLIC_URL + service.image_url : service.image_url}
                       alt={service.serv_name}
                       className="img-fluid h-100"
                       style={{ objectFit: 'contain' }}

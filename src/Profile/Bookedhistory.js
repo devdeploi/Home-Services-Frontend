@@ -97,7 +97,7 @@ export default function BookedHistory() {
         ) : bookings.length === 0 ? (
           <div className="text-center py-5">
             <img
-              src="/images/11677497.gif"
+              src={process.env.PUBLIC_URL + "/images/11677497.gif"}
               alt="No bookings"
               style={{ width: '150px', height: '150px', opacity: 0.7 }}
               className="mb-3"

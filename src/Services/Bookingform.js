@@ -169,7 +169,7 @@ export default function Bookingform() {
                 }}
               >
                 <img
-                  src={service.image_url}
+                  src={service.image_url?.startsWith('/') ? process.env.PUBLIC_URL + service.image_url : service.image_url}
                   alt={service.serv_name}
                   style={{
                     maxHeight: '100%',
@@ -194,7 +194,7 @@ export default function Bookingform() {
           ) : (
             <div className="d-flex justify-content-center w-100">
               <img
-                src="/images/Generallogo.png"
+                src={process.env.PUBLIC_URL + "/images/Generallogo.png"}
                 alt="General Logo"
                 className="img-fluid"
                 style={{ height: '242px', width: '279px', borderRadius: '16px' }}
@@ -313,7 +313,7 @@ export default function Bookingform() {
         <Modal.Body className="text-center p-4">
           <div className="mb-3">
             <div className="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style={{ width: '50px', height: '50px' }}>
-              <img src="/images/tick.png" alt="" />
+              <img src={process.env.PUBLIC_URL + "/images/tick.png"} alt="" />
             </div>
           </div>
           <h5 className="fw-bold mb-2" style={{ color: '#000080' }}>Service Booked Successfully</h5>

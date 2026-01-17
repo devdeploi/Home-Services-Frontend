@@ -6,7 +6,7 @@ export default function First() {
     <>
       <div className="d-flex flex-column justify-content-center align-items-center vh-100">
         <img
-          src="/images/Generallogo.png"
+          src={process.env.PUBLIC_URL + "/images/Generallogo.png"}
           alt="General Services Logo"
           className="mb-4"
           style={{ maxWidth: '200px', width: '100%' }}

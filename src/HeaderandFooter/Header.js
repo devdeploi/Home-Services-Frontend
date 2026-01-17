@@ -8,7 +8,7 @@ export default function Header() {
       <div className="container-fluid">
         <div className="navbar-brand d-flex align-items-center">
           <img
-            src='/images/Generallogo.png'
+            src={process.env.PUBLIC_URL + '/images/Generallogo.png'}
             alt="Logo"
             height="70px"
             width='70px'

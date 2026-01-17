@@ -87,7 +87,7 @@ export default function Adminlogin() {
       {/* Logo Section */}
       <div className="d-flex justify-content-center mt-4">
         <img
-          src="/images/Generallogo.png"
+          src={process.env.PUBLIC_URL + "/images/Generallogo.png"}
           alt="Admin Logo"
           style={{ height: '242px', width: '279px' }}
         />

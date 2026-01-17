@@ -84,7 +84,7 @@ export default function Menucard() {
                       className="mb-2"
                       style={{
                         height: '60px',
-                        backgroundImage: `url(${service.image_url})`,
+                        backgroundImage: `url(${service.image_url?.startsWith('/') ? process.env.PUBLIC_URL + service.image_url : service.image_url})`,
                         backgroundSize: 'contain',
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'center',

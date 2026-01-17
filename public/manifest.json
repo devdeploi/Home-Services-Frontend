@@ -28,8 +28,9 @@
       "type": "image/png"
     }
   ],
-  "start_url": "./index.html",
-  "id": "/index.html",
+  "start_url": ".",
+  "id": ".",
+  "scope": ".",
   "display": "standalone",
   "description": "Professional home services at your doorstep.",
   "orientation": "any",
