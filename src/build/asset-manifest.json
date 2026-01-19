@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/GSAPP/static/css/main.362b7f60.css",
-    "main.js": "/GSAPP/static/js/main.e457936c.js",
+    "main.js": "/GSAPP/static/js/main.933a24f2.js",
     "static/js/488.1d420d81.chunk.js": "/GSAPP/static/js/488.1d420d81.chunk.js",
     "service-worker.js": "/GSAPP/service-worker.js",
     "index.html": "/GSAPP/index.html",
     "main.362b7f60.css.map": "/GSAPP/static/css/main.362b7f60.css.map",
-    "main.e457936c.js.map": "/GSAPP/static/js/main.e457936c.js.map",
+    "main.933a24f2.js.map": "/GSAPP/static/js/main.933a24f2.js.map",
     "488.1d420d81.chunk.js.map": "/GSAPP/static/js/488.1d420d81.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.362b7f60.css",
-    "static/js/main.e457936c.js"
+    "static/js/main.933a24f2.js"
   ]
 }
