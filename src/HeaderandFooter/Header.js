@@ -8,11 +8,11 @@ export default function Header() {
       <div className="container-fluid">
         <div className="navbar-brand d-flex align-items-center">
           <img
-            src={process.env.PUBLIC_URL + '/images/Generallogo.png'}
+            src={process.env.PUBLIC_URL + '/images/Home_Service.png'}
             alt="Logo"
             height="70px"
             width='70px'
-            className="d-inline-block align-top me-3 rounded-circle"
+            className="d-inline-block align-top me-3"
             style={{ marginLeft: '10px' }}
           />
           <div className="d-flex flex-column">

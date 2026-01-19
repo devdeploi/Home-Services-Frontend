@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { QRCodeSVG } from 'qrcode.react';
+import { QRCodeCanvas } from 'qrcode.react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -9,25 +9,14 @@ function Qrcode() {
 
   const handleDownload = () => {
     if (!qrCodeRef.current) return;
-    
-    const svg = qrCodeRef.current;
-    const svgData = new XMLSerializer().serializeToString(svg);
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    const img = new Image();
-    
-    img.onload = () => {
-      canvas.width = img.width;
-      canvas.height = img.height;
-      ctx.drawImage(img, 0, 0);
-      
-      const link = document.createElement('a');
-      link.download = 'qrcode.png';
-      link.href = canvas.toDataURL();
-      link.click();
-    };
-    
-    img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
+
+    // QRCodeCanvas renders a canvas element directly
+    const canvas = qrCodeRef.current;
+
+    const link = document.createElement('a');
+    link.download = 'qrcode.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
   };
 
   return (
@@ -35,7 +24,7 @@ function Qrcode() {
       <div className="card shadow-lg mx-auto" style={{ maxWidth: '500px' }}>
         <div className="card-body">
           <h2 className="card-title text-center mb-4">QR Code Generator</h2>
-          
+
           <div className="mb-3">
             <input
               type="text"
@@ -49,7 +38,7 @@ function Qrcode() {
           {text && (
             <div className="text-center mb-4">
               <div className="border p-3 rounded">
-                <QRCodeSVG
+                <QRCodeCanvas
                   ref={qrCodeRef}
                   value={text}
                   size={256}
@@ -57,8 +46,8 @@ function Qrcode() {
                   includeMargin={true}
                 />
               </div>
-              
-              <button 
+
+              <button
                 onClick={handleDownload}
                 className="btn btn-primary mt-3"
                 disabled={!text}

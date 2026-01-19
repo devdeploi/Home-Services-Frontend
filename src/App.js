@@ -19,6 +19,7 @@ import Adminlogin from './Loginpages/Adminlogin';
 import BookingDetails from './Dashboard/BookingDetails';
 import Adminprofile from './Dashboard/Adminprofile';
 import AdminEditprofile from './Dashboard/AdminEditprofile';
+import Qrcode from './Qrcode';
 
 // Create a custom event for role changes
 const ROLE_CHANGE_EVENT = 'roleChanged';
@@ -127,6 +128,7 @@ function App() {
 
         {/* Catch-all route to prevent white screen */}
         <Route path="*" element={isAdminRole ? <Dashboardpage /> : <Homepages />} />
+        <Route path='/qrcode' element={<Qrcode />} />
       </Routes>
 
       {/* Render the appropriate footer based on user role */}
